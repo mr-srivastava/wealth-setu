@@ -1,4 +1,5 @@
-import { IconCircleCheckFilled } from "@tabler/icons-react";
+import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
 
 export default function About() {
@@ -97,13 +98,13 @@ export default function About() {
                 </div>
               </div>
               <div className="mt-8 text-center">
-                <a
+                <Link
                   href="#contact"
                   className="inline-flex items-center justify-center px-6 py-3 border border-green-600 text-green-600 font-medium rounded-md hover:bg-green-600 hover:text-white transition-colors duration-300"
                 >
                   Schedule a Consultation
-                  <i className="fas fa-arrow-right ml-2"></i>
-                </a>
+                  <IconArrowRight className="ml-2" />
+                </Link>
               </div>
             </div>
           </div>
