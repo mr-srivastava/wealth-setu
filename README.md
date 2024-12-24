@@ -1,1 +1,1 @@
-# wealth-setu
+# WealthSetu
