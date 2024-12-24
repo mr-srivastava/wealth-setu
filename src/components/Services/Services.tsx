@@ -1,9 +1,11 @@
 import {
+  IconArrowRight,
   IconChartPie4Filled,
   IconCheck,
   IconEmergencyBed,
   IconShieldHeart,
 } from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
 
 const SERVICES = [
@@ -91,13 +93,13 @@ export default function Services() {
         </div>
 
         <div className="mt-16 text-center">
-          <a
+          <Link
             href="#contact"
             className="inline-flex items-center justify-center px-8 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition-colors duration-300"
           >
             Get Expert Advice
-            <i className="fas fa-arrow-right ml-2"></i>
-          </a>
+            <IconArrowRight className="ml-2" />
+          </Link>
         </div>
       </div>
     </section>

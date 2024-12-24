@@ -1,3 +1,9 @@
+import {
+  IconChartLine,
+  IconCircleCheckFilled,
+  IconShieldHalfFilled,
+} from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
 
 export default function Hero() {
@@ -18,26 +24,26 @@ export default function Hero() {
               bridge the gap to your financial success.
             </p>
             <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row">
-              <a
+              <Link
                 href="#contact"
                 className="inline-block text-center px-8 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-300"
               >
                 Start Your Financial Journey
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#why-us"
                 className="inline-block text-center px-8 py-3 border border-green-600 text-green-600 rounded-md hover:bg-green-50 transition-colors duration-300"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
             <div className="flex items-center space-x-4 text-sm text-gray-600">
               <div className="flex items-center">
-                <i className="fas fa-check-circle text-green-600 mr-2"></i>
+                <IconCircleCheckFilled className="text-green-600 mr-2" />
                 AMFI Registered
               </div>
               <div className="flex items-center">
-                <i className="fas fa-shield-alt text-green-600 mr-2"></i>
+                <IconShieldHalfFilled className="text-green-600 mr-2" />
                 Licensed Advisor
               </div>
             </div>
@@ -46,7 +52,7 @@ export default function Hero() {
             <div className="relative h-96 w-full">
               <div className="absolute inset-0 bg-green-200 rounded-lg transform -rotate-6"></div>
               <div className="absolute inset-0 bg-green-600/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                <i className="fas fa-chart-line text-9xl text-green-600/30"></i>
+                <IconChartLine size={"8rem"} className="text-green-600/30" />
               </div>
             </div>
           </div>

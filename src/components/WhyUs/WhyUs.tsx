@@ -1,9 +1,11 @@
 import {
+  IconArrowRight,
   IconCertificate,
   IconCircleCheckFilled,
   IconPresentationFilled,
   IconShieldHalfFilled,
 } from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
 
 const VALUEPROPS = [
@@ -103,13 +105,13 @@ export default function WhyUs() {
         </div>
 
         <div className="mt-16 text-center">
-          <a
+          <Link
             href="#contact"
             className="inline-flex items-center justify-center px-8 py-3 border-2 border-green-600 text-green-600 font-medium rounded-md hover:bg-green-600 hover:text-white transition-colors duration-300"
           >
             Start Your Financial Journey
-            <i className="fas fa-arrow-right ml-2"></i>
-          </a>
+            <IconArrowRight className="ml-2" />
+          </Link>
         </div>
       </div>
     </section>
