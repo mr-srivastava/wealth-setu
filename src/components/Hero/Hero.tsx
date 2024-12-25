@@ -1,8 +1,9 @@
 import {
-  IconChartLine,
+  IconWallet,
   IconCircleCheckFilled,
   IconShieldHalfFilled,
 } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -52,7 +53,12 @@ export default function Hero() {
             <div className="relative h-96 w-full">
               <div className="absolute inset-0 bg-green-200 rounded-lg transform -rotate-6"></div>
               <div className="absolute inset-0 bg-green-600/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                <IconChartLine size={"8rem"} className="text-green-600/30" />
+                <Image
+                  src="/rupee.svg"
+                  alt="Hero Image"
+                  width={500}
+                  height={500}
+                />
               </div>
             </div>
           </div>

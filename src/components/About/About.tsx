@@ -2,6 +2,20 @@ import { IconArrowRight, IconCircleCheckFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
 
+const TRUST_METRICS = [
+  { metric: "10+", label: "Years of Experience" },
+  { metric: "5000+", label: "Happy Clients" },
+  { metric: "₹100Cr+", label: "Assets Managed" },
+  { metric: "99%", label: "Client Satisfaction" },
+];
+
+const WHY_CHOOSE = [
+  "AMFI Registered Advisors",
+  "Personalized Solutions",
+  "Expert Guidance",
+  "Transparent Service",
+];
+
 export default function About() {
   return (
     <section id="about" className="py-20 bg-white">
@@ -46,24 +60,12 @@ export default function About() {
                 Why Choose WealthSetu?
               </h3>
               <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center space-x-3">
-                  <IconCircleCheckFilled className="text-green-600 mt-1" />
-                  <span className="text-gray-600">
-                    AMFI Registered Advisors
-                  </span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <IconCircleCheckFilled className="text-green-600 mt-1" />
-                  <span className="text-gray-600">Personalized Solutions</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <IconCircleCheckFilled className="text-green-600 mt-1" />
-                  <span className="text-gray-600">Expert Guidance</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <IconCircleCheckFilled className="text-green-600 mt-1" />
-                  <span className="text-gray-600">Transparent Service</span>
-                </div>
+                {WHY_CHOOSE.map((item) => (
+                  <div key={item} className="flex items-center space-x-3">
+                    <IconCircleCheckFilled className="text-green-600 mt-1" />
+                    <span className="text-gray-600">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -72,30 +74,17 @@ export default function About() {
             <div className="absolute -inset-4 bg-green-50 rounded-xl transform rotate-3"></div>
             <div className="relative bg-white p-8 rounded-xl shadow-lg">
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-6 bg-green-50 rounded-lg">
-                  <div className="text-3xl font-bold text-green-600 mb-2">
-                    10+
+                {TRUST_METRICS.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="text-center p-6 bg-green-50 rounded-lg"
+                  >
+                    <div className="text-3xl font-bold text-green-600 mb-2">
+                      {metric.metric}
+                    </div>
+                    <div className="text-gray-600">{metric.label}</div>
                   </div>
-                  <div className="text-gray-600">Years of Excellence</div>
-                </div>
-                <div className="text-center p-6 bg-green-50 rounded-lg">
-                  <div className="text-3xl font-bold text-green-600 mb-2">
-                    5000+
-                  </div>
-                  <div className="text-gray-600">Happy Clients</div>
-                </div>
-                <div className="text-center p-6 bg-green-50 rounded-lg">
-                  <div className="text-3xl font-bold text-green-600 mb-2">
-                    ₹100Cr+
-                  </div>
-                  <div className="text-gray-600">Assets Managed</div>
-                </div>
-                <div className="text-center p-6 bg-green-50 rounded-lg">
-                  <div className="text-3xl font-bold text-green-600 mb-2">
-                    99%
-                  </div>
-                  <div className="text-gray-600">Client Satisfaction</div>
-                </div>
+                ))}
               </div>
               <div className="mt-8 text-center">
                 <Link
