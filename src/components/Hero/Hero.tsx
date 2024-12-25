@@ -1,5 +1,4 @@
 import {
-  IconWallet,
   IconCircleCheckFilled,
   IconShieldHalfFilled,
 } from "@tabler/icons-react";
