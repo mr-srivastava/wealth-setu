@@ -1,10 +1,11 @@
 import React from "react";
-import ContactForm from "./ContactForm";
+
 import {
   IconMailFilled,
   IconMapPinFilled,
   IconPhoneFilled,
 } from "@tabler/icons-react";
+import ContactForm2 from "./ContactForm2";
 
 export default function Contact() {
   return (
@@ -23,7 +24,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="bg-white rounded-xl p-8 shadow-lg">
-            <ContactForm />
+            <ContactForm2 />
           </div>
 
           <div className="space-y-8">
