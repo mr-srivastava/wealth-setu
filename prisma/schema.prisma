@@ -1,0 +1,28 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Ledgers {
+  id        Int      @id @default(autoincrement())
+  amount    Float
+  timestamp BigInt
+  partnerId Int
+  partner   Partners @relation(fields: [partnerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Partners {
+  id        Int       @id @default(autoincrement())
+  name      String
+  shortName String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  ledgers   Ledgers[] // Relation field to reference related ledgers
+}
