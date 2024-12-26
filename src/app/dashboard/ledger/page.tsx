@@ -5,7 +5,7 @@ import {
 import { Metadata } from "next";
 
 const fetchLedger = async (): Promise<Array<Transaction>> => {
-  const res = await fetch("http://localhost:3000/api/ledgers");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ledgers`);
   if (!res.ok) {
     const errorText = await res.text();
     throw new Error(`Failed to fetch data: ${res.status} - ${errorText}`);
