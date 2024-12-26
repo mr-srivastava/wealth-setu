@@ -11,7 +11,7 @@ generator client {
 model Ledgers {
   id        Int      @id @default(autoincrement())
   amount    Float
-  timestamp BigInt
+  timestamp String
   partnerId Int
   partner   Partners @relation(fields: [partnerId], references: [id])
   createdAt DateTime @default(now())
@@ -25,13 +25,4 @@ model Partners {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   ledgers   Ledgers[] // Relation field to reference related ledgers
-}
-
-model MonthlyTransactionsBreakdown {
-  transaction_month  DateTime
-  total_transactions Int
-  total_amount       Float
-
-  @@map("monthly_transactions_breakdown") // Map to the view name
-  @@ignore() // Prevent migrations from attempting to modify the view
 }
