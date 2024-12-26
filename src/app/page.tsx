@@ -8,6 +8,12 @@ import Process from "@/components/Process/Process";
 import Services from "@/components/Services/Services";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import WhyUs from "@/components/WhyUs/WhyUs";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "WealthSetu - Your Financial Journey Starts Here",
+  description: "WealthSetu - Your Financial Journey Starts Here",
+};
 
 export default function Home() {
   return (
