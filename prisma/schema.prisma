@@ -26,3 +26,12 @@ model Partners {
   updatedAt DateTime  @updatedAt
   ledgers   Ledgers[] // Relation field to reference related ledgers
 }
+
+model MonthlyTransactionsBreakdown {
+  transaction_month  DateTime
+  total_transactions Int
+  total_amount       Float
+
+  @@map("monthly_transactions_breakdown") // Map to the view name
+  @@ignore() // Prevent migrations from attempting to modify the view
+}
