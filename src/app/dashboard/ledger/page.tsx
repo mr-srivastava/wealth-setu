@@ -30,10 +30,12 @@
 //     </div>
 //   );
 // }
-import React from 'react'
+import React from "react";
 
 export default function page() {
   return (
-    <div>page</div>
-  )
+    <div>
+      DB: {process.env.DATABASE_URL} Di: {process.env.DIRECT_URL}
+    </div>
+  );
 }
