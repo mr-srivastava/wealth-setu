@@ -62,12 +62,12 @@ const data = {
           url: "/dashboard/reports",
         },
         {
-          title: "Year to Date",
-          url: "/dashboard/reports/year-to-date",
+          title: "Monthly",
+          url: "/dashboard/reports/monthly",
         },
         {
-          title: "Settings",
-          url: "#",
+          title: "Year to Date",
+          url: "/dashboard/reports/year-to-date",
         },
       ],
     },
