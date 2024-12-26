@@ -35,7 +35,11 @@ import React from "react";
 export default function page() {
   return (
     <div>
-      DB: {process.env.DATABASE_URL} Di: {process.env.DIRECT_URL}
+      DB: {process.env.DATABASE_URL}
+      <br />
+      Di: {process.env.DIRECT_URL}
+      <br />
+      POSTGRES_PRISMA_URL: {process.env.POSTGRES_PRISMA_URL}
     </div>
   );
 }
