@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 
 interface LedgerData {
   amount: number;
-  timestamp: bigint;
+  timestamp: string;
   partnerId: number;
 }
 
@@ -23,6 +23,7 @@ export async function getLedgersService(id?: number) {
       partner: true, // Optionally include related partner data
     },
   });
+
   return ledgers;
 }
 

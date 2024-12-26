@@ -3,12 +3,9 @@ import { z } from "zod";
 // Validation schema for Ledger
 export const LedgerSchema = z.object({
   amount: z.number(),
-  timestamp: z
-    .string()
-    .refine((val) => !isNaN(Number(val)), {
-      message: "Timestamp should be a valid number or string",
-    })
-    .transform((val) => BigInt(val)), // Transform string to BigInt
+  timestamp: z.string().refine((val) => !isNaN(Number(val)), {
+    message: "Timestamp should be a valid number or string",
+  }),
   partnerId: z.number(),
 });
 
@@ -16,12 +13,9 @@ export const LedgerSchema = z.object({
 export const BulkLedgerSchema = z.array(
   z.object({
     amount: z.number(),
-    timestamp: z
-      .string()
-      .refine((val) => !isNaN(Number(val)), {
-        message: "Timestamp should be a valid number or string",
-      })
-      .transform((val) => BigInt(val)), // Transform string to BigInt
+    timestamp: z.string().refine((val) => !isNaN(Number(val)), {
+      message: "Timestamp should be a valid number or string",
+    }), 
     partnerId: z.number(),
   })
 );

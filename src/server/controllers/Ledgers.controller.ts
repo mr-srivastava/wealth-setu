@@ -20,14 +20,12 @@ export async function GET(request: Request) {
     if (id) {
       // Fetch a specific ledger by ID
       const ledger = await getLedgersService(Number(id));
-
       if (!ledger) {
         return NextResponse.json(
           { message: "Ledger not found" },
           { status: 404 }
         );
       }
-
       return NextResponse.json(ledger, { status: 200 });
     }
 
