@@ -2,9 +2,9 @@ import {
   IconCircleCheckFilled,
   IconShieldHalfFilled,
 } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import HeroIcon from "../HeroIcon/HeroIcon";
 
 export default function Hero() {
   return (
@@ -49,17 +49,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="relative h-96 w-full">
-              <div className="absolute inset-0 bg-green-200 rounded-lg transform -rotate-6"></div>
-              <div className="absolute inset-0 bg-green-600/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                <Image
-                  src="/rupee.svg"
-                  alt="Hero Image"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </div>
+            <HeroIcon iconSrc="/rupee.svg" />
           </div>
         </div>
       </div>

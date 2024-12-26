@@ -18,6 +18,33 @@ const SOCIALS = [
   { name: "Instagram", icon: <IconBrandInstagramFilled />, href: "#" },
 ];
 
+const QUICK_LINKS = [
+  { name: "About Us", href: "/#about" },
+  { name: "Our Services", href: "/#services" },
+  { name: "Testimonials", href: "/#testimonials" },
+  { name: "Contact Us", href: "/#contact" },
+  { name: "Dashboard", href: "/dashboard" },
+];
+
+const SERVICES = [
+  {
+    name: "Mutual Funds",
+    href: "/#services",
+  },
+  {
+    name: "Life Insurance",
+    href: "/#services",
+  },
+  {
+    name: "Health Insurance",
+    href: "/#services",
+  },
+  {
+    name: "General Insurance",
+    href: "/#services",
+  },
+];
+
 export default function Footer() {
   return (
     <footer id="footer" className="bg-gray-900 text-white">
@@ -47,38 +74,16 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonials"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  Contact Us
-                </a>
-              </li>
+              {QUICK_LINKS.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-green-500 transition-colors duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -87,38 +92,16 @@ export default function Footer() {
               Our Services
             </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  Mutual Funds
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  Life Insurance
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  Health Insurance
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-green-500 transition-colors duration-300"
-                >
-                  General Insurance
-                </a>
-              </li>
+              {SERVICES.map((service) => (
+                <li key={service.name}>
+                  <Link
+                    href={service.href}
+                    className="text-gray-400 hover:text-green-500 transition-colors duration-300"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -158,24 +141,24 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex justify-start md:justify-end space-x-4">
-              <a
+              <Link
                 href="#"
                 className="text-sm text-gray-400 hover:text-green-500 transition-colors duration-300"
               >
                 Privacy Policy
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-sm text-gray-400 hover:text-green-500 transition-colors duration-300"
               >
                 Terms &amp; Conditions
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
                 className="text-sm text-gray-400 hover:text-green-500 transition-colors duration-300"
               >
                 Disclaimer
-              </a>
+              </Link>
             </div>
           </div>
         </div>
