@@ -14,6 +14,9 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import "../globals.css";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -22,7 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`min-h-screen flex flex-col antialiased`}>
+      <body
+        className={`${montserrat.className} min-h-screen flex flex-col antialiased`}
+      >
         <SidebarProvider>
           <AppSidebar className="bg-gradient-to-b from-green-50 to-green-100" />
           <SidebarInset>
