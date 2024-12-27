@@ -31,6 +31,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { time } from "console";
 
 export interface Transaction {
   id: number;
@@ -83,12 +84,8 @@ const columns: ColumnDef<Transaction>[] = [
 
   {
     accessorKey: "timestamp",
-    header: "Timestamp",
-    cell: ({ row }) => (
-      <div>
-        {new Date(parseInt(row.getValue("timestamp"))).toLocaleString()}
-      </div>
-    ),
+    header: "Month",
+    cell: ({ row }) => <div>{getMonthString(row.getValue("timestamp"))}</div>,
   },
   {
     accessorKey: "createdAt",
@@ -120,6 +117,12 @@ const columns: ColumnDef<Transaction>[] = [
     },
   },
 ];
+
+const getMonthString = (timestamp: string) =>
+  new Date(parseInt(timestamp)).toLocaleString("en", {
+    month: "short",
+    year: "numeric",
+  });
 
 export function TransactionsTable({
   transactions,
