@@ -47,7 +47,7 @@ export async function GET(request: Request) {
       total_amount: parseFloat(item.total_amount.toFixed(2).toString()),
     }));
 
-    return NextResponse.json({ success: true, sanitizedData });
+    return NextResponse.json({ success: true, data: sanitizedData });
   } catch (error: unknown) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
