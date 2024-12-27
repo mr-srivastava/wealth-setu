@@ -17,12 +17,14 @@ interface DataCardProps {
 
 function DataCard({ title, description, children }: DataCardProps) {
   return (
-    <Card className="w-full h-full">
+    <Card className="w-full h-full flex flex-col">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent>{children}</CardContent>
+      <CardContent className="flex-1">
+        {children}
+      </CardContent>
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">

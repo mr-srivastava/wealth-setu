@@ -138,7 +138,7 @@ export default async function Page() {
             title="Annual Ledger Summary"
             description="A comprehensive overview of financial activity for the year."
           >
-            <div className=" text-4xl font-bold">
+            <div className="w-full h-full text-5xl font-bold flex items-center justify-center">
               {totalAmount.toLocaleString("en-US", {
                 style: "currency",
                 currency: "INR",
@@ -149,7 +149,7 @@ export default async function Page() {
             title="Average Monthly Ledger Activity"
             description="Average financial activity recorded per month throughout the year."
           >
-            <div className=" text-4xl font-bold">
+            <div className="w-full h-full text-5xl font-bold flex items-center justify-center">
               {totalTransactions.toLocaleString("en-US", {
                 style: "currency",
                 currency: "INR",
