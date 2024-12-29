@@ -5,20 +5,20 @@
   "scripts": {
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "prisma generate --schema src/prisma/schema.prisma",
-    "prisma:migrate": "prisma migrate dev --schema src/prisma/schema.prisma",
-    "prisma:migrate:deploy": "prisma migrate deploy --schema src/prisma/schema.prisma",
-    "prisma:studio": "prisma studio --schema src/prisma/schema.prisma",
-    "prisma:format": "prisma format --schema src/prisma/schema.prisma",
-    "prisma:validate": "prisma validate --schema src/prisma/schema.prisma",
-    "prisma:introspect": "prisma introspect --schema src/prisma/schema.prisma",
-    "db:push": "prisma db push --schema src/prisma/schema.prisma",
-    "db:seed": "prisma db seed --schema src/prisma/schema.prisma",
-    "db:reset": "prisma db reset --schema src/prisma/schema.prisma",
-    "db:pull": "prisma db pull --schema src/prisma/schema.prisma",
-    "db:status": "prisma db status --schema src/prisma/schema.prisma",
-    "db:diff": "prisma db diff --schema src/prisma/schema.prisma",
-    "postinstall": "prisma generate --schema src/prisma/schema.prisma",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "prisma:format": "prisma format",
+    "prisma:validate": "prisma validate",
+    "prisma:introspect": "prisma introspect",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed",
+    "db:reset": "prisma db reset",
+    "db:pull": "prisma db pull",
+    "db:status": "prisma db status",
+    "db:diff": "prisma db diff",
+    "postinstall": "prisma generate",
     "dev": "npm run prisma:generate && next dev",
     "build": "npm run prisma:generate && next build"
   },
@@ -62,5 +62,8 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
   }
 }
