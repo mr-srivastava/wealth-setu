@@ -16,6 +16,7 @@ model Ledgers {
   partner   Partners @relation(fields: [partnerId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  @@unique([timestamp, partnerId])
 }
 
 model Partners {
