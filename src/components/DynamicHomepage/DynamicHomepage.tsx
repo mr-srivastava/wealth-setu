@@ -28,12 +28,8 @@ const SectionRenderer = memo(function SectionRenderer({
   return <Component {...processedData} className={section.className} />;
 });
 
-function processSectionData(data: unknown): unknown {
-  if (!data || typeof data !== 'object') return data;
-
-  if (Array.isArray(data)) {
-    return data.map(item => processSectionData(item));
-  }
+function processSectionData(data: unknown): Record<string, unknown> {
+  if (!data || typeof data !== 'object') return {};
 
   const processed = Object.assign({}, data as Record<string, unknown>);
 
@@ -45,6 +41,13 @@ function processSectionData(data: unknown): unknown {
       if (IconComponent) {
         processed[key] = <IconComponent />;
       }
+    } else if (Array.isArray(value)) {
+      // Process arrays by mapping over their items
+      processed[key] = value.map(item =>
+        typeof item === 'object' && item !== null
+          ? processSectionData(item)
+          : item
+      );
     } else if (typeof value === 'object' && value !== null) {
       // Recursively process nested objects
       processed[key] = processSectionData(value);
