@@ -1,6 +1,6 @@
-import React from "react";
-import { DataCard } from "./DataCard";
-import { Input } from "../ui/input";
+import React from 'react';
+import { DataCard } from './DataCard';
+import { Input } from '../ui/input';
 
 export const MonthlyReport = () => {
   return (

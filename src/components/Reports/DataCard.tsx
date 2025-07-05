@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Card,
   CardContent,
@@ -6,8 +6,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/card";
-import { TrendingUp } from "lucide-react";
+} from '../ui/card';
+import { TrendingUp } from 'lucide-react';
 
 interface DataCardProps {
   title: string;
@@ -22,9 +22,7 @@ function DataCard({ title, description, children }: DataCardProps) {
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent className="flex-1">
-        {children}
-      </CardContent>
+      <CardContent className="flex-1">{children}</CardContent>
       <CardFooter>
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">

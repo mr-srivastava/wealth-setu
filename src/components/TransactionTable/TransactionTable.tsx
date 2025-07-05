@@ -1,5 +1,5 @@
-"use client";
-import * as React from "react";
+'use client';
+import * as React from 'react';
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -11,18 +11,18 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { ChevronDown } from "lucide-react";
+} from '@tanstack/react-table';
+import { ChevronDown } from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
 import {
   Table,
   TableBody,
@@ -30,8 +30,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { time } from "console";
+} from '@/components/ui/table';
 
 export interface Transaction {
   id: number;
@@ -51,21 +50,21 @@ export interface Transaction {
 
 const columns: ColumnDef<Transaction>[] = [
   {
-    id: "select",
+    id: 'select',
     header: ({ table }) => (
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
+          (table.getIsSomePageRowsSelected() && 'indeterminate')
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        onCheckedChange={value => row.toggleSelected(!!value)}
         aria-label="Select row"
       />
     ),
@@ -74,43 +73,43 @@ const columns: ColumnDef<Transaction>[] = [
   },
 
   {
-    accessorFn: (row) => row.partner.name,
-    header: "Partner",
+    accessorFn: row => row.partner.name,
+    header: 'Partner',
   },
   {
-    accessorFn: (row) => row.partner.shortName,
-    header: "Partner Key",
+    accessorFn: row => row.partner.shortName,
+    header: 'Partner Key',
   },
 
   {
-    accessorKey: "timestamp",
-    header: "Month",
-    cell: ({ row }) => <div>{getMonthString(row.getValue("timestamp"))}</div>,
+    accessorKey: 'timestamp',
+    header: 'Month',
+    cell: ({ row }) => <div>{getMonthString(row.getValue('timestamp'))}</div>,
   },
   {
-    accessorKey: "createdAt",
-    header: "Created At",
+    accessorKey: 'createdAt',
+    header: 'Created At',
     cell: ({ row }) => (
-      <div>{new Date(row.getValue("createdAt")).toLocaleString()}</div>
+      <div>{new Date(row.getValue('createdAt')).toLocaleString()}</div>
     ),
   },
   {
-    accessorKey: "updatedAt",
-    header: "Updated At",
+    accessorKey: 'updatedAt',
+    header: 'Updated At',
     cell: ({ row }) => (
-      <div>{new Date(row.getValue("updatedAt")).toLocaleString()}</div>
+      <div>{new Date(row.getValue('updatedAt')).toLocaleString()}</div>
     ),
   },
   {
-    accessorKey: "amount",
-    header: "Amount",
+    accessorKey: 'amount',
+    header: 'Amount',
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
+      const amount = parseFloat(row.getValue('amount'));
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "INR",
+      const formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'INR',
       }).format(amount);
 
       return <div className="text-right font-medium">{formatted}</div>;
@@ -119,9 +118,9 @@ const columns: ColumnDef<Transaction>[] = [
 ];
 
 const getMonthString = (timestamp: string) =>
-  new Date(parseInt(timestamp)).toLocaleString("en", {
-    month: "short",
-    year: "numeric",
+  new Date(parseInt(timestamp)).toLocaleString('en', {
+    month: 'short',
+    year: 'numeric',
   });
 
 export function TransactionsTable({
@@ -131,8 +130,8 @@ export function TransactionsTable({
 }) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([
-    { id: "amount", value: "" },
-    { id: "partner.name", value: "" },
+    { id: 'amount', value: '' },
+    { id: 'partner.name', value: '' },
   ]);
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
@@ -160,8 +159,8 @@ export function TransactionsTable({
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
     setColumnFilters([
-      { id: "amount", value: searchValue },
-      { id: "partner.name", value: searchValue },
+      { id: 'amount', value: searchValue },
+      { id: 'partner.name', value: searchValue },
     ]);
   };
 
@@ -170,7 +169,7 @@ export function TransactionsTable({
       <div className="flex items-center py-4">
         <Input
           placeholder="Search transactions by amount or partner..."
-          value={(columnFilters[0].value as string) || ""}
+          value={(columnFilters[0].value as string) || ''}
           onChange={handleSearchChange}
           className="max-w-sm"
         />
@@ -183,16 +182,14 @@ export function TransactionsTable({
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
+              .filter(column => column.getCanHide())
+              .map(column => {
                 return (
                   <DropdownMenuCheckboxItem
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
+                    onCheckedChange={value => column.toggleVisibility(!!value)}
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
@@ -204,9 +201,9 @@ export function TransactionsTable({
       <div className="rounded-md border">
         <Table>
           <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
+            {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
+                {headerGroup.headers.map(header => {
                   return (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
@@ -223,12 +220,12 @@ export function TransactionsTable({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map(row => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                 >
-                  {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells().map(cell => (
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
@@ -253,7 +250,7 @@ export function TransactionsTable({
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
+          {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
         <div className="space-x-2">
