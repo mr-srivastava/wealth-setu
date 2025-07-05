@@ -29,6 +29,32 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Code Quality
+
+This project uses [Husky](https://typicode.github.io/husky/) with [lint-staged](https://github.com/okonet/lint-staged) to ensure code quality before commits.
+
+### Pre-commit Hooks
+
+Before each commit, the following actions are automatically performed on staged files:
+
+- **Prettier formatting** for all supported file types (`.js`, `.jsx`, `.ts`, `.tsx`, `.json`, `.css`, `.md`, `.mdx`)
+- **ESLint fixes** for JavaScript/TypeScript files
+
+### Manual Commands
+
+You can also run these commands manually:
+
+```bash
+# Format all files with Prettier
+npm run format
+
+# Lint and fix all files
+npm run lint:fix
+
+# Run lint-staged manually (for staged files only)
+npx lint-staged
+```
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
