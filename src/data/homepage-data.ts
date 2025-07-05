@@ -103,7 +103,7 @@ export const homepageData: HomepageData = {
     {
       id: 'services',
       type: 'Services',
-      className: 'py-20 bg-white',
+      className: 'py-20 bg-green-50',
       data: {
         title: 'Our Services',
         description: 'Comprehensive financial solutions tailored to your needs',
@@ -150,7 +150,7 @@ export const homepageData: HomepageData = {
     {
       id: 'why-us',
       type: 'WhyUs',
-      className: 'py-20 bg-green-50',
+      className: 'py-20 bg-white',
       data: {
         title: 'Why Choose WealthSetu?',
         description: 'Discover what makes us your trusted financial partner',

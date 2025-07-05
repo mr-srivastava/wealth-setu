@@ -132,7 +132,7 @@ const TestimonialsCTA = memo(function TestimonialsCTA() {
 
 export default function Testimonials({ className = '' }: TestimonialsProps) {
   return (
-    <section id="testimonials" className={`py-20 bg-white ${className}`}>
+    <section id="testimonials" className={`py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TestimonialsHeader />
         <TestimonialsGrid />

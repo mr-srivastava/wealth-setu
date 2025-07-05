@@ -141,7 +141,7 @@ const ContactSidebar = memo(function ContactSidebar() {
 
 export default function Contact({ className = '' }: ContactProps) {
   return (
-    <section id="contact" className={`py-20 bg-green-50 ${className}`}>
+    <section id="contact" className={`py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ContactHeader />
         <div className="grid lg:grid-cols-2 gap-12">

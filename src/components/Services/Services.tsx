@@ -158,7 +158,7 @@ export default function Services({
   services,
 }: ServicesProps) {
   return (
-    <section id="services" className={`py-20 bg-white ${className}`}>
+    <section id="services" className={`py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ServicesHeader title={title} description={description} />
         <ServicesGrid services={services} />

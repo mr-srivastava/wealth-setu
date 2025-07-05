@@ -153,7 +153,7 @@ const WhyUsCTA = memo(function WhyUsCTA() {
 
 export default function WhyUs({ className = '' }: WhyUsProps) {
   return (
-    <section id="why-us" className={`py-20 bg-green-50 ${className}`}>
+    <section id="why-us" className={`py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <WhyUsHeader />
         <ValuePropsGrid />
