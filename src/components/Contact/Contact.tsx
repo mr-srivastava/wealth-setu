@@ -1,11 +1,11 @@
-import React, { memo } from "react";
+import React, { memo } from 'react';
 
 import {
   IconMailFilled,
   IconMapPinFilled,
   IconPhoneFilled,
-} from "@tabler/icons-react";
-import ContactForm2 from "./ContactForm2";
+} from '@tabler/icons-react';
+import ContactForm2 from './ContactForm2';
 
 interface ContactInfo {
   icon: React.ElementType;
@@ -25,30 +25,34 @@ interface ContactProps {
 const CONTACT_INFO: ContactInfo[] = [
   {
     icon: IconMapPinFilled,
-    title: "Office Address",
-    value: "123 Financial District, Mumbai 400001",
+    title: 'Office Address',
+    value: '123 Financial District, Mumbai 400001',
   },
   {
     icon: IconPhoneFilled,
-    title: "Phone",
-    value: "+91 98765 43210",
+    title: 'Phone',
+    value: '+91 98765 43210',
   },
   {
     icon: IconMailFilled,
-    title: "Email",
-    value: "contact@wealthsetu.com",
+    title: 'Email',
+    value: 'contact@wealthsetu.com',
   },
 ];
 
 const BUSINESS_HOURS: BusinessHour[] = [
-  { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM" },
-  { day: "Saturday", hours: "10:00 AM - 2:00 PM" },
-  { day: "Sunday", hours: "Closed" },
+  { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM' },
+  { day: 'Saturday', hours: '10:00 AM - 2:00 PM' },
+  { day: 'Sunday', hours: 'Closed' },
 ];
 
-const ContactInfoItem = memo(function ContactInfoItem({ info }: { info: ContactInfo }) {
+const ContactInfoItem = memo(function ContactInfoItem({
+  info,
+}: {
+  info: ContactInfo;
+}) {
   const IconComponent = info.icon;
-  
+
   return (
     <div className="flex items-start space-x-4">
       <div className="text-green-600">
@@ -62,7 +66,11 @@ const ContactInfoItem = memo(function ContactInfoItem({ info }: { info: ContactI
   );
 });
 
-const BusinessHourItem = memo(function BusinessHourItem({ hour }: { hour: BusinessHour }) {
+const BusinessHourItem = memo(function BusinessHourItem({
+  hour,
+}: {
+  hour: BusinessHour;
+}) {
   return (
     <div className="flex justify-between">
       <span className="text-gray-600">{hour.day}</span>
@@ -79,8 +87,8 @@ const ContactHeader = memo(function ContactHeader() {
       </h2>
       <div className="h-1 w-20 bg-green-600 rounded mx-auto"></div>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-        Take the first step towards securing your financial future. Schedule
-        a free consultation with our experts.
+        Take the first step towards securing your financial future. Schedule a
+        free consultation with our experts.
       </p>
     </div>
   );
@@ -101,7 +109,7 @@ const ContactInfoSection = memo(function ContactInfoSection() {
         Contact Information
       </h3>
       <div className="space-y-4">
-        {CONTACT_INFO.map((info) => (
+        {CONTACT_INFO.map(info => (
           <ContactInfoItem key={info.title} info={info} />
         ))}
       </div>
@@ -112,11 +120,9 @@ const ContactInfoSection = memo(function ContactInfoSection() {
 const BusinessHoursSection = memo(function BusinessHoursSection() {
   return (
     <div className="bg-white rounded-xl p-8 shadow-lg">
-      <h3 className="text-xl font-bold text-gray-900 mb-6">
-        Business Hours
-      </h3>
+      <h3 className="text-xl font-bold text-gray-900 mb-6">Business Hours</h3>
       <div className="space-y-2">
-        {BUSINESS_HOURS.map((hour) => (
+        {BUSINESS_HOURS.map(hour => (
           <BusinessHourItem key={hour.day} hour={hour} />
         ))}
       </div>
@@ -133,7 +139,7 @@ const ContactSidebar = memo(function ContactSidebar() {
   );
 });
 
-export default function Contact({ className = "" }: ContactProps) {
+export default function Contact({ className = '' }: ContactProps) {
   return (
     <section id="contact" className={`py-20 bg-green-50 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

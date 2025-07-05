@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 import {
   ArrowLeftRight,
   Building2,
@@ -8,19 +8,19 @@ import {
   Gauge,
   SquareTerminal,
   type LucideIcon,
-} from "lucide-react";
+} from 'lucide-react';
 
-import { NavMain } from "@/components/nav-main";
+import { NavMain } from '@/components/nav-main';
 // import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
+import { NavUser } from '@/components/nav-user';
+import { TeamSwitcher } from '@/components/team-switcher';
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
 interface User {
   name: string;
@@ -56,58 +56,58 @@ interface AppSidebarData {
 // Centralized data configuration
 const sidebarData: AppSidebarData = {
   user: {
-    name: "Aadarsh Srivastava",
-    email: "aadarsh.srivastava16@gmail.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: 'Aadarsh Srivastava',
+    email: 'aadarsh.srivastava16@gmail.com',
+    avatar: '/avatars/shadcn.jpg',
   },
   teams: [
     {
-      name: "WealthSetu",
+      name: 'WealthSetu',
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: 'Enterprise',
     },
   ],
   navItems: [
     {
-      section: "Manage",
+      section: 'Manage',
       items: [
         {
-          title: "Dashboard",
-          url: "/dashboard",
+          title: 'Dashboard',
+          url: '/dashboard',
           icon: Gauge,
         },
         {
-          title: "Partners",
-          url: "/dashboard/partners",
+          title: 'Partners',
+          url: '/dashboard/partners',
           icon: Building2,
         },
         {
-          title: "Ledger",
-          url: "/dashboard/ledger",
+          title: 'Ledger',
+          url: '/dashboard/ledger',
           icon: ArrowLeftRight,
         },
       ],
     },
     {
-      section: "Insights",
+      section: 'Insights',
       items: [
         {
-          title: "Reports",
-          url: "#",
+          title: 'Reports',
+          url: '#',
           icon: SquareTerminal,
           isActive: true,
           items: [
             {
-              title: "Overview",
-              url: "/dashboard/reports",
+              title: 'Overview',
+              url: '/dashboard/reports',
             },
             {
-              title: "Monthly",
-              url: "/dashboard/reports/monthly",
+              title: 'Monthly',
+              url: '/dashboard/reports/monthly',
             },
             {
-              title: "Year to Date",
-              url: "/dashboard/reports/year-to-date",
+              title: 'Year to Date',
+              url: '/dashboard/reports/year-to-date',
             },
           ],
         },
@@ -128,7 +128,7 @@ export function AppSidebar({ data = sidebarData, ...props }: AppSidebarProps) {
       </SidebarHeader>
       <SidebarContent>
         {/* <NavProjects projects={data.projects} /> */}
-        {data.navItems.map((section) => (
+        {data.navItems.map(section => (
           <NavMain
             key={section.section}
             section={section.section}

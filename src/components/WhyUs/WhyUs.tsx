@@ -4,9 +4,9 @@ import {
   IconCircleCheckFilled,
   IconPresentationFilled,
   IconShieldHalfFilled,
-} from "@tabler/icons-react";
-import Link from "next/link";
-import React, { memo } from "react";
+} from '@tabler/icons-react';
+import Link from 'next/link';
+import React, { memo } from 'react';
 
 interface ValueProp {
   icon: React.ReactNode;
@@ -26,50 +26,54 @@ interface WhyUsProps {
 
 const VALUEPROPS: ValueProp[] = [
   {
-    icon: <IconShieldHalfFilled size={"2.25rem"} className="text-green-600" />,
-    title: "Trust & Credibility",
+    icon: <IconShieldHalfFilled size={'2.25rem'} className="text-green-600" />,
+    title: 'Trust & Credibility',
     description:
-      "AMFI Registered advisors with proven expertise in wealth management and insurance solutions.",
-    keyprop: "AMFI Registration: ARN-123456",
+      'AMFI Registered advisors with proven expertise in wealth management and insurance solutions.',
+    keyprop: 'AMFI Registration: ARN-123456',
   },
   {
     icon: (
-      <IconPresentationFilled size={"2.25rem"} className="text-green-600" />
+      <IconPresentationFilled size={'2.25rem'} className="text-green-600" />
     ),
-    title: "Experience & Expertise",
+    title: 'Experience & Expertise',
     description:
-      "Decade-long experience in creating wealth through strategic financial planning and risk management.",
-    keyprop: "10+ Years of Excellence",
+      'Decade-long experience in creating wealth through strategic financial planning and risk management.',
+    keyprop: '10+ Years of Excellence',
   },
   {
-    icon: <IconCertificate size={"2.25rem"} className="text-green-600" />,
-    title: "Comprehensive Solutions",
+    icon: <IconCertificate size={'2.25rem'} className="text-green-600" />,
+    title: 'Comprehensive Solutions',
     description:
-      "One-stop solution for all your financial needs - from investments to insurance and risk management.",
-    keyprop: "Tailored Financial Solutions",
+      'One-stop solution for all your financial needs - from investments to insurance and risk management.',
+    keyprop: 'Tailored Financial Solutions',
   },
 ];
 
 const METRICS: Metric[] = [
   {
-    metric: "5000+",
-    label: "Happy Clients",
+    metric: '5000+',
+    label: 'Happy Clients',
   },
   {
-    metric: "₹100Cr+",
-    label: "Assets Managed",
+    metric: '₹100Cr+',
+    label: 'Assets Managed',
   },
   {
-    metric: "10+",
-    label: "Years Experience",
+    metric: '10+',
+    label: 'Years Experience',
   },
   {
-    metric: "99%",
-    label: "Client Satisfaction",
+    metric: '99%',
+    label: 'Client Satisfaction',
   },
 ];
 
-const ValuePropCard = memo(function ValuePropCard({ valueprop }: { valueprop: ValueProp }) {
+const ValuePropCard = memo(function ValuePropCard({
+  valueprop,
+}: {
+  valueprop: ValueProp;
+}) {
   return (
     <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="text-green-600 mb-6">{valueprop.icon}</div>
@@ -107,8 +111,7 @@ const WhyUsHeader = memo(function WhyUsHeader() {
       <div className="h-1 w-20 bg-green-600 rounded mx-auto"></div>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
         Experience the perfect blend of expertise, trust, and personalized
-        service that has made us the preferred choice for financial
-        planning.
+        service that has made us the preferred choice for financial planning.
       </p>
     </div>
   );
@@ -117,7 +120,7 @@ const WhyUsHeader = memo(function WhyUsHeader() {
 const ValuePropsGrid = memo(function ValuePropsGrid() {
   return (
     <div className="grid md:grid-cols-3 gap-8">
-      {VALUEPROPS.map((valueprop) => (
+      {VALUEPROPS.map(valueprop => (
         <ValuePropCard key={valueprop.title} valueprop={valueprop} />
       ))}
     </div>
@@ -127,7 +130,7 @@ const ValuePropsGrid = memo(function ValuePropsGrid() {
 const MetricsGrid = memo(function MetricsGrid() {
   return (
     <div className="mt-16 grid md:grid-cols-4 gap-8">
-      {METRICS.map((metric) => (
+      {METRICS.map(metric => (
         <MetricCard key={metric.label} metric={metric} />
       ))}
     </div>
@@ -148,7 +151,7 @@ const WhyUsCTA = memo(function WhyUsCTA() {
   );
 });
 
-export default function WhyUs({ className = "" }: WhyUsProps) {
+export default function WhyUs({ className = '' }: WhyUsProps) {
   return (
     <section id="why-us" className={`py-20 bg-green-50 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

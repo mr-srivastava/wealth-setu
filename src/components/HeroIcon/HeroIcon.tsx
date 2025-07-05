@@ -1,5 +1,5 @@
-import Image from "next/image";
-import React, { memo } from "react";
+import Image from 'next/image';
+import React, { memo } from 'react';
 
 interface HeroIconProps {
   iconSrc: string;
@@ -13,8 +13,8 @@ export default memo(function HeroIcon({
   iconSrc,
   height = 500,
   width = 500,
-  className = "",
-  alt = "Hero Image"
+  className = '',
+  alt = 'Hero Image',
 }: HeroIconProps) {
   return (
     <div className={`relative h-96 w-full ${className}`}>

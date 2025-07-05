@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   BadgeCheck,
@@ -7,10 +7,10 @@ import {
   CreditCard,
   LogOut,
   Sparkles,
-} from "lucide-react";
-import React, { memo } from "react";
+} from 'lucide-react';
+import React, { memo } from 'react';
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,13 +19,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
 interface User {
   name: string;
@@ -48,7 +48,7 @@ const menuGroups: MenuGroup[] = [
     items: [
       {
         icon: Sparkles,
-        label: "Upgrade to Pro",
+        label: 'Upgrade to Pro',
       },
     ],
   },
@@ -56,15 +56,15 @@ const menuGroups: MenuGroup[] = [
     items: [
       {
         icon: BadgeCheck,
-        label: "Account",
+        label: 'Account',
       },
       {
         icon: CreditCard,
-        label: "Billing",
+        label: 'Billing',
       },
       {
         icon: Bell,
-        label: "Notifications",
+        label: 'Notifications',
       },
     ],
   },
@@ -72,7 +72,7 @@ const menuGroups: MenuGroup[] = [
     items: [
       {
         icon: LogOut,
-        label: "Log out",
+        label: 'Log out',
       },
     ],
   },
@@ -83,7 +83,10 @@ const UserAvatar = memo(function UserAvatar({ user }: { user: User }) {
     <Avatar className="h-8 w-8 rounded-lg">
       <AvatarImage src={user.avatar} alt={user.name} />
       <AvatarFallback className="rounded-lg">
-        {user.name.split(' ').map(n => n[0]).join('')}
+        {user.name
+          .split(' ')
+          .map(n => n[0])
+          .join('')}
       </AvatarFallback>
     </Avatar>
   );
@@ -98,9 +101,13 @@ const UserInfo = memo(function UserInfo({ user }: { user: User }) {
   );
 });
 
-const MenuItemComponent = memo(function MenuItemComponent({ item }: { item: MenuItem }) {
+const MenuItemComponent = memo(function MenuItemComponent({
+  item,
+}: {
+  item: MenuItem;
+}) {
   const IconComponent = item.icon;
-  
+
   return (
     <DropdownMenuItem onClick={item.action}>
       <IconComponent />
@@ -109,7 +116,13 @@ const MenuItemComponent = memo(function MenuItemComponent({ item }: { item: Menu
   );
 });
 
-const MenuGroupComponent = memo(function MenuGroupComponent({ group, index }: { group: MenuGroup; index: number }) {
+const MenuGroupComponent = memo(function MenuGroupComponent({
+  group,
+  index,
+}: {
+  group: MenuGroup;
+  index: number;
+}) {
   return (
     <React.Fragment key={index}>
       <DropdownMenuGroup>
@@ -145,7 +158,7 @@ export function NavUser({ user }: NavUserProps) {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? 'bottom' : 'right'}
             align="end"
             sideOffset={4}
           >

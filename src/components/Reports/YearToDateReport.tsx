@@ -1,5 +1,5 @@
-import React from "react";
-import { DataCard } from "./DataCard";
+import React from 'react';
+import { DataCard } from './DataCard';
 
 export const YearToDateReport = () => {
   return (

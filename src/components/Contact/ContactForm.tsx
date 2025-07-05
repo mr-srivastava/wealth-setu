@@ -1,5 +1,5 @@
-import { IconArrowRight } from "@tabler/icons-react";
-import React from "react";
+import { IconArrowRight } from '@tabler/icons-react';
+import React from 'react';
 
 export default function ContactForm() {
   return (

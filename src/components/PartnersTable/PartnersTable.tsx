@@ -1,5 +1,5 @@
-"use client";
-import * as React from "react";
+'use client';
+import * as React from 'react';
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -11,18 +11,18 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { ChevronDown } from "lucide-react";
+} from '@tanstack/react-table';
+import { ChevronDown } from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
 import {
   Table,
   TableBody,
@@ -30,7 +30,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
 export interface Partner {
   id: number;
@@ -42,21 +42,21 @@ export interface Partner {
 
 const columns: ColumnDef<Partner>[] = [
   {
-    id: "select",
+    id: 'select',
     header: ({ table }) => (
       <Checkbox
         checked={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
+          (table.getIsSomePageRowsSelected() && 'indeterminate')
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        onCheckedChange={value => row.toggleSelected(!!value)}
         aria-label="Select row"
       />
     ),
@@ -64,29 +64,29 @@ const columns: ColumnDef<Partner>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "name",
-    header: "Name",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
+    accessorKey: 'name',
+    header: 'Name',
+    cell: ({ row }) => <div className="capitalize">{row.getValue('name')}</div>,
   },
   {
-    accessorKey: "shortName",
-    header: "Short Name",
+    accessorKey: 'shortName',
+    header: 'Short Name',
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("shortName")}</div>
+      <div className="capitalize">{row.getValue('shortName')}</div>
     ),
   },
   {
-    accessorKey: "createdAt",
-    header: "Created At",
+    accessorKey: 'createdAt',
+    header: 'Created At',
     cell: ({ row }) => (
-      <div>{new Date(row.getValue("createdAt")).toLocaleString()}</div>
+      <div>{new Date(row.getValue('createdAt')).toLocaleString()}</div>
     ),
   },
   {
-    accessorKey: "updatedAt",
-    header: "Updated At",
+    accessorKey: 'updatedAt',
+    header: 'Updated At',
     cell: ({ row }) => (
-      <div>{new Date(row.getValue("updatedAt")).toLocaleString()}</div>
+      <div>{new Date(row.getValue('updatedAt')).toLocaleString()}</div>
     ),
   },
 ];
@@ -96,12 +96,12 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([
     // We want to search across both 'name' and 'shortName' columns
     {
-      id: "name", // This will filter based on 'name' and 'shortName'
-      value: "",
+      id: 'name', // This will filter based on 'name' and 'shortName'
+      value: '',
     },
     {
-      id: "shortName", // To support searching across both columns
-      value: "",
+      id: 'shortName', // To support searching across both columns
+      value: '',
     },
   ]);
   const [columnVisibility, setColumnVisibility] =
@@ -130,8 +130,8 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
     setColumnFilters([
-      { id: "name", value: searchValue },
-      { id: "shortName", value: searchValue },
+      { id: 'name', value: searchValue },
+      { id: 'shortName', value: searchValue },
     ]);
   };
 
@@ -140,7 +140,7 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
       <div className="flex items-center py-4">
         <Input
           placeholder="Search partners by name or short name..."
-          value={(columnFilters[0].value as string) ?? ""}
+          value={(columnFilters[0].value as string) ?? ''}
           onChange={handleSearchChange}
           className="max-w-sm"
         />
@@ -153,16 +153,14 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
+              .filter(column => column.getCanHide())
+              .map(column => {
                 return (
                   <DropdownMenuCheckboxItem
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
+                    onCheckedChange={value => column.toggleVisibility(!!value)}
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
@@ -174,9 +172,9 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
       <div className="rounded-md border">
         <Table>
           <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
+            {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
+                {headerGroup.headers.map(header => {
                   return (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
@@ -193,12 +191,12 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map(row => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                 >
-                  {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells().map(cell => (
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
@@ -223,7 +221,7 @@ export function PartnersTable({ partners }: { partners: Partner[] }) {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
+          {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
         <div className="space-x-2">

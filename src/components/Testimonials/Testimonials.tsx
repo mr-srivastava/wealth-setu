@@ -3,8 +3,8 @@ import {
   IconQuoteFilled,
   IconStarFilled,
   IconUserFilled,
-} from "@tabler/icons-react";
-import React, { memo } from "react";
+} from '@tabler/icons-react';
+import React, { memo } from 'react';
 
 interface Testimonial {
   name: string;
@@ -19,34 +19,38 @@ interface TestimonialsProps {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Rajesh Sharma",
+    name: 'Rajesh Sharma',
     review:
       "WealthSetu has transformed my approach to financial planning. Their expert guidance helped me create a diversified portfolio that's perfectly aligned with my retirement goals.",
-    profession: "IT Professional",
+    profession: 'IT Professional',
     clientAge: 5,
   },
   {
-    name: "Priya Patel",
+    name: 'Priya Patel',
     review:
-      "The personalized attention and comprehensive insurance solutions provided by WealthSetu have given my family complete peace of mind. They truly care about their clients.",
-    profession: "Business Owner",
+      'The personalized attention and comprehensive insurance solutions provided by WealthSetu have given my family complete peace of mind. They truly care about their clients.',
+    profession: 'Business Owner',
     clientAge: 3,
   },
   {
-    name: "Amit Kumar",
+    name: 'Amit Kumar',
     review:
-      "As a first-time investor, WealthSetu made the entire process simple and transparent. Their regular portfolio reviews and updates keep me confident about my investments.",
-    profession: "Healthcare Professional",
+      'As a first-time investor, WealthSetu made the entire process simple and transparent. Their regular portfolio reviews and updates keep me confident about my investments.',
+    profession: 'Healthcare Professional',
     clientAge: 2,
   },
 ];
 
-const TestimonialCard = memo(function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+const TestimonialCard = memo(function TestimonialCard({
+  testimonial,
+}: {
+  testimonial: Testimonial;
+}) {
   return (
     <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
       <div className="text-green-600 mb-6">
         <IconQuoteFilled
-          size={"2.25rem"}
+          size={'2.25rem'}
           className="opacity-20 transform -scale-x-100"
         />
       </div>
@@ -63,8 +67,8 @@ const TestimonialCard = memo(function TestimonialCard({ testimonial }: { testimo
               {testimonial.name}
             </div>
             <div className="text-sm text-gray-600">
-              {testimonial.profession} • Client for{" "}
-              {testimonial.clientAge} years
+              {testimonial.profession} • Client for {testimonial.clientAge}{' '}
+              years
             </div>
           </div>
         </div>
@@ -91,7 +95,7 @@ const TestimonialsHeader = memo(function TestimonialsHeader() {
 const TestimonialsGrid = memo(function TestimonialsGrid() {
   return (
     <div className="grid md:grid-cols-3 gap-8">
-      {TESTIMONIALS.map((testimonial) => (
+      {TESTIMONIALS.map(testimonial => (
         <TestimonialCard key={testimonial.name} testimonial={testimonial} />
       ))}
     </div>
@@ -126,7 +130,7 @@ const TestimonialsCTA = memo(function TestimonialsCTA() {
   );
 });
 
-export default function Testimonials({ className = "" }: TestimonialsProps) {
+export default function Testimonials({ className = '' }: TestimonialsProps) {
   return (
     <section id="testimonials" className={`py-20 bg-white ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,6 @@
-import React, { memo } from "react";
-import ScrollToTop from "./ScrollToTop";
-import Link from "next/link";
+import React, { memo } from 'react';
+import ScrollToTop from './ScrollToTop';
+import Link from 'next/link';
 import {
   IconBrandFacebookFilled,
   IconBrandInstagramFilled,
@@ -9,7 +9,7 @@ import {
   IconMailFilled,
   IconMapPinFilled,
   IconPhoneFilled,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 
 interface SocialLink {
   name: string;
@@ -32,40 +32,44 @@ interface FooterProps {
 }
 
 const SOCIALS: SocialLink[] = [
-  { name: "LinkedIn", icon: <IconBrandLinkedinFilled />, href: "#" },
-  { name: "Twitter", icon: <IconBrandXFilled />, href: "#" },
-  { name: "Facebook", icon: <IconBrandFacebookFilled />, href: "#" },
-  { name: "Instagram", icon: <IconBrandInstagramFilled />, href: "#" },
+  { name: 'LinkedIn', icon: <IconBrandLinkedinFilled />, href: '#' },
+  { name: 'Twitter', icon: <IconBrandXFilled />, href: '#' },
+  { name: 'Facebook', icon: <IconBrandFacebookFilled />, href: '#' },
+  { name: 'Instagram', icon: <IconBrandInstagramFilled />, href: '#' },
 ];
 
 const QUICK_LINKS: FooterLink[] = [
-  { name: "About Us", href: "/#about" },
-  { name: "Our Services", href: "/#services" },
-  { name: "Testimonials", href: "/#testimonials" },
-  { name: "Contact Us", href: "/#contact" },
-  { name: "Dashboard", href: "/dashboard" },
+  { name: 'About Us', href: '/#about' },
+  { name: 'Our Services', href: '/#services' },
+  { name: 'Testimonials', href: '/#testimonials' },
+  { name: 'Contact Us', href: '/#contact' },
+  { name: 'Dashboard', href: '/dashboard' },
 ];
 
 const SERVICES: FooterLink[] = [
-  { name: "Mutual Funds", href: "/#services" },
-  { name: "Life Insurance", href: "/#services" },
-  { name: "Health Insurance", href: "/#services" },
-  { name: "General Insurance", href: "/#services" },
+  { name: 'Mutual Funds', href: '/#services' },
+  { name: 'Life Insurance', href: '/#services' },
+  { name: 'Health Insurance', href: '/#services' },
+  { name: 'General Insurance', href: '/#services' },
 ];
 
 const CONTACT_INFO: ContactInfo[] = [
-  { icon: IconMapPinFilled, value: "123 Financial District, Mumbai 400001" },
-  { icon: IconPhoneFilled, value: "+91 98765 43210" },
-  { icon: IconMailFilled, value: "contact@wealthsetu.com" },
+  { icon: IconMapPinFilled, value: '123 Financial District, Mumbai 400001' },
+  { icon: IconPhoneFilled, value: '+91 98765 43210' },
+  { icon: IconMailFilled, value: 'contact@wealthsetu.com' },
 ];
 
 const LEGAL_LINKS: FooterLink[] = [
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms & Conditions", href: "#" },
-  { name: "Disclaimer", href: "#" },
+  { name: 'Privacy Policy', href: '#' },
+  { name: 'Terms & Conditions', href: '#' },
+  { name: 'Disclaimer', href: '#' },
 ];
 
-const SocialLink = memo(function SocialLink({ social }: { social: SocialLink }) {
+const SocialLink = memo(function SocialLink({
+  social,
+}: {
+  social: SocialLink;
+}) {
   return (
     <Link
       href={social.href}
@@ -90,9 +94,13 @@ const FooterLink = memo(function FooterLink({ link }: { link: FooterLink }) {
   );
 });
 
-const ContactInfoItem = memo(function ContactInfoItem({ info }: { info: ContactInfo }) {
+const ContactInfoItem = memo(function ContactInfoItem({
+  info,
+}: {
+  info: ContactInfo;
+}) {
   const IconComponent = info.icon;
-  
+
   return (
     <li className="flex items-center space-x-3">
       <IconComponent className="text-green-500" />
@@ -106,11 +114,11 @@ const CompanyInfo = memo(function CompanyInfo() {
     <div className="space-y-4">
       <h3 className="text-2xl font-bold text-green-500">WealthSetu</h3>
       <p className="text-gray-400">
-        Your trusted partner in creating comprehensive financial solutions
-        for a secure future.
+        Your trusted partner in creating comprehensive financial solutions for a
+        secure future.
       </p>
       <div className="flex space-x-4">
-        {SOCIALS.map((social) => (
+        {SOCIALS.map(social => (
           <SocialLink key={social.name} social={social} />
         ))}
       </div>
@@ -123,7 +131,7 @@ const QuickLinksSection = memo(function QuickLinksSection() {
     <div className="space-y-4">
       <h4 className="text-lg font-semibold text-green-500">Quick Links</h4>
       <ul className="space-y-2">
-        {QUICK_LINKS.map((link) => (
+        {QUICK_LINKS.map(link => (
           <FooterLink key={link.name} link={link} />
         ))}
       </ul>
@@ -136,7 +144,7 @@ const ServicesSection = memo(function ServicesSection() {
     <div className="space-y-4">
       <h4 className="text-lg font-semibold text-green-500">Our Services</h4>
       <ul className="space-y-2">
-        {SERVICES.map((service) => (
+        {SERVICES.map(service => (
           <FooterLink key={service.name} link={service} />
         ))}
       </ul>
@@ -170,7 +178,7 @@ const FooterBottom = memo(function FooterBottom() {
           </div>
         </div>
         <div className="flex justify-start md:justify-end space-x-4">
-          {LEGAL_LINKS.map((link) => (
+          {LEGAL_LINKS.map(link => (
             <FooterLink key={link.name} link={link} />
           ))}
         </div>
@@ -198,7 +206,7 @@ const FooterContent = memo(function FooterContent() {
   );
 });
 
-export default function Footer({ className = "" }: FooterProps) {
+export default function Footer({ className = '' }: FooterProps) {
   return (
     <footer id="footer" className={`bg-gray-900 text-white ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

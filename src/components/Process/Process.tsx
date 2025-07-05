@@ -3,35 +3,35 @@ import {
   IconFolderCheck,
   IconMessages,
   IconTransactionRupee,
-} from "@tabler/icons-react";
-import React from "react";
+} from '@tabler/icons-react';
+import React from 'react';
 
 const STEPS = [
   {
     step: 1,
-    title: "Initial Consultation",
-    description: "Understanding your financial goals and current situation",
-    icon: <IconMessages size={"2.25rem"} className="text-green-600" />,
+    title: 'Initial Consultation',
+    description: 'Understanding your financial goals and current situation',
+    icon: <IconMessages size={'2.25rem'} className="text-green-600" />,
   },
   {
     step: 2,
-    title: "Analysis and Planning",
-    description: "Evaluating options and creating a personalized plan",
+    title: 'Analysis and Planning',
+    description: 'Evaluating options and creating a personalized plan',
     icon: (
-      <IconDeviceDesktopAnalytics size={"2.25rem"} className="text-green-600" />
+      <IconDeviceDesktopAnalytics size={'2.25rem'} className="text-green-600" />
     ),
   },
   {
     step: 3,
-    title: "Implementation",
-    description: "Executing the strategy with complete transparency",
-    icon: <IconTransactionRupee size={"2.25rem"} className="text-green-600" />,
+    title: 'Implementation',
+    description: 'Executing the strategy with complete transparency',
+    icon: <IconTransactionRupee size={'2.25rem'} className="text-green-600" />,
   },
   {
     step: 4,
-    title: "Regular Review",
-    description: "Monitoring progress and adjusting strategies as needed",
-    icon: <IconFolderCheck size={"2.25rem"} className="text-green-600" />,
+    title: 'Regular Review',
+    description: 'Monitoring progress and adjusting strategies as needed',
+    icon: <IconFolderCheck size={'2.25rem'} className="text-green-600" />,
   },
 ];
 
@@ -52,7 +52,7 @@ export default function Process() {
           <div className="absolute hidden md:block top-1/2 left-0 right-0 h-0.5 bg-green-200 -mt-px"></div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {STEPS.map((step) => (
+            {STEPS.map(step => (
               <div
                 key={step.step}
                 className="relative bg-white rounded-xl p-6 shadow-lg"

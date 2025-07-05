@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
-import React, { memo } from "react";
+import { ChevronRight, type LucideIcon } from 'lucide-react';
+import React, { memo } from 'react';
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from '@/components/ui/collapsible';
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -17,8 +17,8 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar";
-import Link from "next/link";
+} from '@/components/ui/sidebar';
+import Link from 'next/link';
 
 interface NavItem {
   title: string;
@@ -48,7 +48,11 @@ const NavSubItem = memo(function NavSubItem({ item }: { item: NavItem }) {
   );
 });
 
-const NavCollapsibleItem = memo(function NavCollapsibleItem({ item }: { item: NavItemsWithChildren }) {
+const NavCollapsibleItem = memo(function NavCollapsibleItem({
+  item,
+}: {
+  item: NavItemsWithChildren;
+}) {
   return (
     <Collapsible
       key={item.title}
@@ -66,7 +70,7 @@ const NavCollapsibleItem = memo(function NavCollapsibleItem({ item }: { item: Na
         </CollapsibleTrigger>
         <CollapsibleContent>
           <SidebarMenuSub>
-            {item.items?.map((subItem) => (
+            {item.items?.map(subItem => (
               <NavSubItem key={subItem.title} item={subItem} />
             ))}
           </SidebarMenuSub>
@@ -76,22 +80,28 @@ const NavCollapsibleItem = memo(function NavCollapsibleItem({ item }: { item: Na
   );
 });
 
-const NavSimpleItem = memo(function NavSimpleItem({ item }: { item: NavItemsWithChildren }) {
+const NavSimpleItem = memo(function NavSimpleItem({
+  item,
+}: {
+  item: NavItemsWithChildren;
+}) {
   return (
     <SidebarMenuSubItem key={item.title}>
       <SidebarMenuSubButton asChild>
         <Link href={item.url} className="text-green-600">
           {item.icon && <item.icon />}
-          <span className="text-sidebar-accent-foreground">
-            {item.title}
-          </span>
+          <span className="text-sidebar-accent-foreground">{item.title}</span>
         </Link>
       </SidebarMenuSubButton>
     </SidebarMenuSubItem>
   );
 });
 
-const NavItemRenderer = memo(function NavItemRenderer({ item }: { item: NavItemsWithChildren }) {
+const NavItemRenderer = memo(function NavItemRenderer({
+  item,
+}: {
+  item: NavItemsWithChildren;
+}) {
   if (item.items) {
     return <NavCollapsibleItem item={item} />;
   }
@@ -103,7 +113,7 @@ export function NavMain({ section, items }: NavMainProps) {
     <SidebarGroup>
       <SidebarGroupLabel>{section}</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
+        {items.map(item => (
           <NavItemRenderer key={item.title} item={item} />
         ))}
       </SidebarMenu>

@@ -1,12 +1,12 @@
-"use client";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+'use client';
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
-import { DataCard } from "./DataCard";
+} from '@/components/ui/chart';
+import { DataCard } from './DataCard';
 
 interface ChartData {
   month: string;
@@ -15,8 +15,8 @@ interface ChartData {
 
 const chartConfig = {
   total_amount: {
-    label: "Total Amount",
-    color: "hsl(var(--chart-2))",
+    label: 'Total Amount',
+    color: 'hsl(var(--chart-2))',
   },
 } satisfies ChartConfig;
 
@@ -49,17 +49,17 @@ export function AreaChartCard({
             tickLine={false}
             axisLine={false}
             tickMargin={8}
-            tickFormatter={(value) => value.slice(0, 3)}
+            tickFormatter={value => value.slice(0, 3)}
           />
           <ChartTooltip
             cursor={false}
             content={
               <ChartTooltipContent
                 indicator="dot"
-                formatter={(value) =>
-                  value.toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "INR",
+                formatter={value =>
+                  value.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'INR',
                   })
                 }
               />

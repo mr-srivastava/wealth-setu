@@ -1,9 +1,9 @@
-"use client";
-import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
+'use client';
+import { zodResolver } from '@hookform/resolvers/zod';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -11,34 +11,34 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { IconArrowRight } from "@tabler/icons-react";
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { IconArrowRight } from '@tabler/icons-react';
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
-    message: "First name must be at least 2 characters.",
+    message: 'First name must be at least 2 characters.',
   }),
   lastName: z.string().min(2, {
-    message: "Last name must be at least 2 characters.",
+    message: 'Last name must be at least 2 characters.',
   }),
   email: z
     .string()
     .email({
-      message: "Please enter a valid email address.",
+      message: 'Please enter a valid email address.',
     })
     .optional()
-    .or(z.literal("")),
+    .or(z.literal('')),
   phoneNumber: z.string().min(10, {
-    message: "Phone number must be at least 10 digits.",
+    message: 'Phone number must be at least 10 digits.',
   }),
   interestedIn: z.string().optional(),
   message: z.string().optional(),
@@ -48,12 +48,12 @@ export default function ContactForm2() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      interestedIn: "",
-      message: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      interestedIn: '',
+      message: '',
     },
   });
 

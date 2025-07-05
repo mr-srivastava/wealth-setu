@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { ChevronsUpDown, Plus } from "lucide-react";
-import { memo, useCallback } from "react";
+import * as React from 'react';
+import { ChevronsUpDown, Plus } from 'lucide-react';
+import { memo, useCallback } from 'react';
 
 import {
   DropdownMenu,
@@ -12,13 +12,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
 interface Team {
   name: string;
@@ -48,15 +48,15 @@ const TeamInfo = memo(function TeamInfo({ team }: { team: Team }) {
   );
 });
 
-const TeamMenuItem = memo(function TeamMenuItem({ 
-  team, 
-  index, 
-  isActive, 
-  onSelect 
-}: { 
-  team: Team; 
-  index: number; 
-  isActive: boolean; 
+const TeamMenuItem = memo(function TeamMenuItem({
+  team,
+  index,
+  isActive,
+  onSelect,
+}: {
+  team: Team;
+  index: number;
+  isActive: boolean;
   onSelect: (team: Team) => void;
 }) {
   return (
@@ -79,14 +79,16 @@ const AddTeamMenuItem = memo(function AddTeamMenuItem() {
       <div className="flex size-6 items-center justify-center rounded-md border bg-background">
         <Plus className="size-4" />
       </div>
-      <div className="font-medium text-muted-foreground">
-        Add team
-      </div>
+      <div className="font-medium text-muted-foreground">Add team</div>
     </DropdownMenuItem>
   );
 });
 
-const SingleTeamButton = memo(function SingleTeamButton({ team }: { team: Team }) {
+const SingleTeamButton = memo(function SingleTeamButton({
+  team,
+}: {
+  team: Team;
+}) {
   return (
     <SidebarMenuButton
       size="lg"
@@ -98,13 +100,13 @@ const SingleTeamButton = memo(function SingleTeamButton({ team }: { team: Team }
   );
 });
 
-const MultiTeamDropdown = memo(function MultiTeamDropdown({ 
-  teams, 
-  activeTeam, 
-  onTeamSelect 
-}: { 
-  teams: Team[]; 
-  activeTeam: Team; 
+const MultiTeamDropdown = memo(function MultiTeamDropdown({
+  teams,
+  activeTeam,
+  onTeamSelect,
+}: {
+  teams: Team[];
+  activeTeam: Team;
   onTeamSelect: (team: Team) => void;
 }) {
   const { isMobile } = useSidebar();
@@ -124,7 +126,7 @@ const MultiTeamDropdown = memo(function MultiTeamDropdown({
       <DropdownMenuContent
         className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
         align="start"
-        side={isMobile ? "bottom" : "right"}
+        side={isMobile ? 'bottom' : 'right'}
         sideOffset={4}
       >
         <DropdownMenuLabel className="text-xs text-muted-foreground">
@@ -159,9 +161,9 @@ export function TeamSwitcher({ teams, multiTeam = false }: TeamSwitcherProps) {
         {!multiTeam ? (
           <SingleTeamButton team={activeTeam} />
         ) : (
-          <MultiTeamDropdown 
-            teams={teams} 
-            activeTeam={activeTeam} 
+          <MultiTeamDropdown
+            teams={teams}
+            activeTeam={activeTeam}
             onTeamSelect={handleTeamSelect}
           />
         )}
