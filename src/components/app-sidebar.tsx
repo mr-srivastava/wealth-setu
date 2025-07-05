@@ -7,6 +7,7 @@ import {
   GalleryVerticalEnd,
   Gauge,
   SquareTerminal,
+  type LucideIcon,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -21,8 +22,39 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 
-// This is sample data.
-const data = {
+interface User {
+  name: string;
+  email: string;
+  avatar: string;
+}
+
+interface Team {
+  name: string;
+  logo: React.ElementType;
+  plan: string;
+}
+
+interface NavItem {
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  isActive?: boolean;
+  items?: NavItem[];
+}
+
+interface NavSection {
+  section: string;
+  items: NavItem[];
+}
+
+interface AppSidebarData {
+  user: User;
+  teams: Team[];
+  navItems: NavSection[];
+}
+
+// Centralized data configuration
+const sidebarData: AppSidebarData = {
   user: {
     name: "Aadarsh Srivastava",
     email: "aadarsh.srivastava16@gmail.com",
@@ -84,7 +116,11 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  data?: AppSidebarData;
+}
+
+export function AppSidebar({ data = sidebarData, ...props }: AppSidebarProps) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>

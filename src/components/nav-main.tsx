@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronRight, type LucideIcon } from "lucide-react";
+import React, { memo } from "react";
 
 import {
   Collapsible,
@@ -35,56 +36,75 @@ interface NavMainProps {
   items: Array<NavItemsWithChildren>;
 }
 
+const NavSubItem = memo(function NavSubItem({ item }: { item: NavItem }) {
+  return (
+    <SidebarMenuSubItem>
+      <SidebarMenuSubButton asChild>
+        <Link href={item.url}>
+          <span>{item.title}</span>
+        </Link>
+      </SidebarMenuSubButton>
+    </SidebarMenuSubItem>
+  );
+});
+
+const NavCollapsibleItem = memo(function NavCollapsibleItem({ item }: { item: NavItemsWithChildren }) {
+  return (
+    <Collapsible
+      key={item.title}
+      asChild
+      defaultOpen={item.isActive}
+      className="group/collapsible"
+    >
+      <SidebarMenuItem>
+        <CollapsibleTrigger asChild>
+          <SidebarMenuButton tooltip={item.title}>
+            {item.icon && <item.icon className="text-green-600" />}
+            <span>{item.title}</span>
+            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+          </SidebarMenuButton>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <SidebarMenuSub>
+            {item.items?.map((subItem) => (
+              <NavSubItem key={subItem.title} item={subItem} />
+            ))}
+          </SidebarMenuSub>
+        </CollapsibleContent>
+      </SidebarMenuItem>
+    </Collapsible>
+  );
+});
+
+const NavSimpleItem = memo(function NavSimpleItem({ item }: { item: NavItemsWithChildren }) {
+  return (
+    <SidebarMenuSubItem key={item.title}>
+      <SidebarMenuSubButton asChild>
+        <Link href={item.url} className="text-green-600">
+          {item.icon && <item.icon />}
+          <span className="text-sidebar-accent-foreground">
+            {item.title}
+          </span>
+        </Link>
+      </SidebarMenuSubButton>
+    </SidebarMenuSubItem>
+  );
+});
+
+const NavItemRenderer = memo(function NavItemRenderer({ item }: { item: NavItemsWithChildren }) {
+  if (item.items) {
+    return <NavCollapsibleItem item={item} />;
+  }
+  return <NavSimpleItem item={item} />;
+});
+
 export function NavMain({ section, items }: NavMainProps) {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>{section}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <>
-            {item.items ? (
-              <Collapsible
-                key={item.title}
-                asChild
-                defaultOpen={item.isActive}
-                className="group/collapsible"
-              >
-                <SidebarMenuItem>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip={item.title}>
-                      {item.icon && <item.icon className="text-green-600" />}
-                      <span>{item.title}</span>
-                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <SidebarMenuSub>
-                      {item.items?.map((subItem) => (
-                        <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
-                            <Link href={subItem.url}>
-                              <span>{subItem.title}</span>
-                            </Link>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
-            ) : (
-              <SidebarMenuSubItem>
-                <SidebarMenuSubButton asChild>
-                  <Link href={item.url} className="text-green-600">
-                    {item.icon && <item.icon />}
-                    <span className="text-sidebar-accent-foreground">
-                      {item.title}
-                    </span>
-                  </Link>
-                </SidebarMenuSubButton>
-              </SidebarMenuSubItem>
-            )}
-          </>
+          <NavItemRenderer key={item.title} item={item} />
         ))}
       </SidebarMenu>
     </SidebarGroup>
