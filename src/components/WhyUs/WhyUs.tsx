@@ -26,23 +26,21 @@ interface WhyUsProps {
 
 const VALUEPROPS: ValueProp[] = [
   {
-    icon: <IconShieldHalfFilled size={'2.25rem'} className="text-green-600" />,
+    icon: <IconShieldHalfFilled size={'2.25rem'} className="text-primary" />,
     title: 'Trust & Credibility',
     description:
       'AMFI Registered advisors with proven expertise in wealth management and insurance solutions.',
     keyprop: 'AMFI Registration: ARN-123456',
   },
   {
-    icon: (
-      <IconPresentationFilled size={'2.25rem'} className="text-green-600" />
-    ),
+    icon: <IconPresentationFilled size={'2.25rem'} className="text-primary" />,
     title: 'Experience & Expertise',
     description:
       'Decade-long experience in creating wealth through strategic financial planning and risk management.',
     keyprop: '10+ Years of Excellence',
   },
   {
-    icon: <IconCertificate size={'2.25rem'} className="text-green-600" />,
+    icon: <IconCertificate size={'2.25rem'} className="text-primary" />,
     title: 'Comprehensive Solutions',
     description:
       'One-stop solution for all your financial needs - from investments to insurance and risk management.',
@@ -75,15 +73,15 @@ const ValuePropCard = memo(function ValuePropCard({
   valueprop: ValueProp;
 }) {
   return (
-    <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <div className="text-green-600 mb-6">{valueprop.icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 mb-4">
+    <div className="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="text-primary mb-6">{valueprop.icon}</div>
+      <h3 className="text-xl font-bold text-foreground mb-4">
         {valueprop.title}
       </h3>
-      <p className="text-gray-600 mb-6">{valueprop.description}</p>
-      <div className="border-t border-gray-100 pt-4">
-        <div className="flex items-center text-sm text-gray-600">
-          <IconCircleCheckFilled className="text-green-600 mr-2" />
+      <p className="text-muted-foreground mb-6">{valueprop.description}</p>
+      <div className="border-t border-border pt-4">
+        <div className="flex items-center text-sm text-muted-foreground">
+          <IconCircleCheckFilled className="text-primary mr-2" />
           {valueprop.keyprop}
         </div>
       </div>
@@ -93,11 +91,11 @@ const ValuePropCard = memo(function ValuePropCard({
 
 const MetricCard = memo(function MetricCard({ metric }: { metric: Metric }) {
   return (
-    <div className="bg-white p-6 rounded-lg text-center">
-      <div className="text-3xl font-bold text-green-600 mb-2">
+    <div className="bg-card p-6 rounded-lg text-center">
+      <div className="text-3xl font-bold text-primary mb-2">
         {metric.metric}
       </div>
-      <p className="text-gray-600">{metric.label}</p>
+      <p className="text-muted-foreground">{metric.label}</p>
     </div>
   );
 });
@@ -105,11 +103,11 @@ const MetricCard = memo(function MetricCard({ metric }: { metric: Metric }) {
 const WhyUsHeader = memo(function WhyUsHeader() {
   return (
     <div className="text-center mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <h2 className="text-3xl font-bold text-foreground mb-4">
         Why Choose WealthSetu?
       </h2>
-      <div className="h-1 w-20 bg-green-600 rounded mx-auto"></div>
-      <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+      <div className="h-1 w-20 bg-primary rounded mx-auto"></div>
+      <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
         Experience the perfect blend of expertise, trust, and personalized
         service that has made us the preferred choice for financial planning.
       </p>
@@ -142,7 +140,7 @@ const WhyUsCTA = memo(function WhyUsCTA() {
     <div className="mt-16 text-center">
       <Link
         href="#contact"
-        className="inline-flex items-center justify-center px-8 py-3 border-2 border-green-600 text-green-600 font-medium rounded-md hover:bg-green-600 hover:text-white transition-colors duration-300"
+        className="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-medium rounded-md hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
       >
         Start Your Financial Journey
         <IconArrowRight className="ml-2" />

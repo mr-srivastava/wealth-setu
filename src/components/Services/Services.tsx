@@ -69,8 +69,8 @@ const ServiceFeature = memo(function ServiceFeature({
 }) {
   return (
     <li className="flex items-center space-x-3">
-      <IconCheck className="text-green-600 mt-1" />
-      <span className="text-gray-600">{feature}</span>
+      <IconCheck className="text-primary mt-1" />
+      <span className="text-muted-foreground">{feature}</span>
     </li>
   );
 });
@@ -81,12 +81,14 @@ const ServiceCard = memo(function ServiceCard({
   service: Service;
 }) {
   return (
-    <div className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-      <div className="text-green-600 mb-6 transform group-hover:scale-110 transition-transform duration-300">
+    <div className="group bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border">
+      <div className="text-primary mb-6 transform group-hover:scale-110 transition-transform duration-300">
         {service.icon}
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-      <p className="text-gray-600 mb-6">{service.description}</p>
+      <h3 className="text-xl font-bold text-foreground mb-4">
+        {service.title}
+      </h3>
+      <p className="text-muted-foreground mb-6">{service.description}</p>
 
       <ul className="space-y-3 mb-8">
         {service.features.map(feature => (
@@ -94,7 +96,7 @@ const ServiceCard = memo(function ServiceCard({
         ))}
       </ul>
 
-      <div className="text-green-600 text-sm font-medium">
+      <div className="text-primary text-sm font-medium">
         {service.highlightText}
       </div>
     </div>
@@ -112,9 +114,9 @@ const ServicesHeader = memo(function ServicesHeader({
 }: ServicesHeaderProps) {
   return (
     <div className="text-center mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
-      <div className="h-1 w-20 bg-green-600 rounded mx-auto"></div>
-      <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+      <h2 className="text-3xl font-bold text-foreground mb-4">{title}</h2>
+      <div className="h-1 w-20 bg-primary rounded mx-auto"></div>
+      <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
         {description}
       </p>
     </div>
@@ -142,7 +144,7 @@ const ServicesCTA = memo(function ServicesCTA() {
     <div className="mt-16 text-center">
       <Link
         href="#contact"
-        className="inline-flex items-center justify-center px-8 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition-colors duration-300"
+        className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors duration-300"
       >
         Get Expert Advice
         <IconArrowRight className="ml-2" />

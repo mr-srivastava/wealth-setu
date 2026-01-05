@@ -73,7 +73,7 @@ const SocialLink = memo(function SocialLink({
   return (
     <Link
       href={social.href}
-      className="text-gray-400 hover:text-green-500 transition-colors duration-300"
+      className="text-muted-foreground hover:text-primary transition-colors duration-300"
       aria-label={social.name}
     >
       {social.icon}
@@ -86,7 +86,7 @@ const FooterLink = memo(function FooterLink({ link }: { link: FooterLink }) {
     <li>
       <Link
         href={link.href}
-        className="text-gray-400 hover:text-green-500 transition-colors duration-300"
+        className="text-muted-foreground hover:text-primary transition-colors duration-300"
       >
         {link.name}
       </Link>
@@ -103,8 +103,8 @@ const ContactInfoItem = memo(function ContactInfoItem({
 
   return (
     <li className="flex items-center space-x-3">
-      <IconComponent className="text-green-500" />
-      <span className="text-gray-400">{info.value}</span>
+      <IconComponent className="text-primary" />
+      <span className="text-muted-foreground">{info.value}</span>
     </li>
   );
 });
@@ -112,8 +112,8 @@ const ContactInfoItem = memo(function ContactInfoItem({
 const CompanyInfo = memo(function CompanyInfo() {
   return (
     <div className="space-y-4">
-      <h3 className="text-2xl font-bold text-green-500">WealthSetu</h3>
-      <p className="text-gray-400">
+      <h3 className="text-2xl font-bold text-primary">WealthSetu</h3>
+      <p className="text-muted-foreground">
         Your trusted partner in creating comprehensive financial solutions for a
         secure future.
       </p>
@@ -129,7 +129,7 @@ const CompanyInfo = memo(function CompanyInfo() {
 const QuickLinksSection = memo(function QuickLinksSection() {
   return (
     <div className="space-y-4">
-      <h4 className="text-lg font-semibold text-green-500">Quick Links</h4>
+      <h4 className="text-lg font-semibold text-primary">Quick Links</h4>
       <ul className="space-y-2">
         {QUICK_LINKS.map(link => (
           <FooterLink key={link.name} link={link} />
@@ -142,7 +142,7 @@ const QuickLinksSection = memo(function QuickLinksSection() {
 const ServicesSection = memo(function ServicesSection() {
   return (
     <div className="space-y-4">
-      <h4 className="text-lg font-semibold text-green-500">Our Services</h4>
+      <h4 className="text-lg font-semibold text-primary">Our Services</h4>
       <ul className="space-y-2">
         {SERVICES.map(service => (
           <FooterLink key={service.name} link={service} />
@@ -155,7 +155,7 @@ const ServicesSection = memo(function ServicesSection() {
 const ContactInfoSection = memo(function ContactInfoSection() {
   return (
     <div className="space-y-4">
-      <h4 className="text-lg font-semibold text-green-500">Contact Info</h4>
+      <h4 className="text-lg font-semibold text-primary">Contact Info</h4>
       <ul className="space-y-2">
         {CONTACT_INFO.map((info, index) => (
           <ContactInfoItem key={index} info={info} />
@@ -167,13 +167,13 @@ const ContactInfoSection = memo(function ContactInfoSection() {
 
 const FooterBottom = memo(function FooterBottom() {
   return (
-    <div className="border-t border-gray-800 pt-8 mt-8">
+    <div className="border-t border-border pt-8 mt-8">
       <div className="grid md:grid-cols-2 gap-4 items-center">
         <div className="flex items-center space-x-4">
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-muted-foreground">
             <span className="font-medium">AMFI Registration:</span> ARN-123456
           </div>
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-muted-foreground">
             <span className="font-medium">SEBI Registration:</span> INA000012345
           </div>
         </div>
@@ -189,7 +189,7 @@ const FooterBottom = memo(function FooterBottom() {
 
 const Copyright = memo(function Copyright() {
   return (
-    <div className="text-center text-gray-400 text-sm mt-8">
+    <div className="text-center text-muted-foreground text-sm mt-8">
       <p>© {new Date().getFullYear()} WealthSetu. All rights reserved.</p>
     </div>
   );
@@ -208,7 +208,10 @@ const FooterContent = memo(function FooterContent() {
 
 export default function Footer({ className = '' }: FooterProps) {
   return (
-    <footer id="footer" className={`bg-gray-900 text-white ${className}`}>
+    <footer
+      id="footer"
+      className={`bg-foreground text-background ${className}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <FooterContent />
         <FooterBottom />

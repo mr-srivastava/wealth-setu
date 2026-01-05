@@ -47,26 +47,26 @@ const TestimonialCard = memo(function TestimonialCard({
   testimonial: Testimonial;
 }) {
   return (
-    <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-      <div className="text-green-600 mb-6">
+    <div className="bg-card rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div className="text-primary mb-6">
         <IconQuoteFilled
           size={'2.25rem'}
           className="opacity-20 transform -scale-x-100"
         />
       </div>
-      <blockquote className="text-gray-600 mb-6">
+      <blockquote className="text-muted-foreground mb-6">
         &quot;{testimonial.review}&quot;
       </blockquote>
-      <div className="border-t border-gray-100 pt-4">
+      <div className="border-t border-border pt-4">
         <div className="flex items-center">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-            <IconUserFilled className="text-green-600" />
+          <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center">
+            <IconUserFilled className="text-primary" />
           </div>
           <div className="ml-4">
-            <div className="font-semibold text-gray-900">
+            <div className="font-semibold text-foreground">
               {testimonial.name}
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-muted-foreground">
               {testimonial.profession} • Client for {testimonial.clientAge}{' '}
               years
             </div>
@@ -80,11 +80,11 @@ const TestimonialCard = memo(function TestimonialCard({
 const TestimonialsHeader = memo(function TestimonialsHeader() {
   return (
     <div className="text-center mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <h2 className="text-3xl font-bold text-foreground mb-4">
         Client Success Stories
       </h2>
-      <div className="h-1 w-20 bg-green-600 rounded mx-auto"></div>
-      <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+      <div className="h-1 w-20 bg-primary rounded mx-auto"></div>
+      <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
         Hear from our clients about their journey to financial success with
         WealthSetu.
       </p>
@@ -108,7 +108,7 @@ const RatingDisplay = memo(function RatingDisplay() {
       {Array.from({ length: 5 }).map((_, index) => (
         <IconStarFilled key={index} className="text-yellow-400" />
       ))}
-      <span className="ml-2 text-gray-600 font-semibold">
+      <span className="ml-2 text-muted-foreground font-semibold">
         4.9/5 Average Rating
       </span>
     </div>
@@ -121,7 +121,7 @@ const TestimonialsCTA = memo(function TestimonialsCTA() {
       <RatingDisplay />
       <a
         href="#contact"
-        className="inline-flex items-center justify-center px-8 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition-colors duration-300"
+        className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors duration-300"
       >
         Start Your Success Story
         <IconArrowNarrowRight className="ml-2" />

@@ -4,7 +4,7 @@ import { HomepageDataService } from '@/services/data-service';
 import type { NavigationItem } from '@/data/homepage-data';
 
 const Logo = memo(function Logo() {
-  return <span className="text-2xl font-bold text-green-600">WealthSetu</span>;
+  return <span className="text-2xl font-bold text-primary">WealthSetu</span>;
 });
 
 const NavigationLink = memo(function NavigationLink({
@@ -14,8 +14,8 @@ const NavigationLink = memo(function NavigationLink({
 }) {
   const baseClasses = 'transition-colors duration-300';
   const classes = item.isButton
-    ? `${baseClasses} bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700`
-    : `${baseClasses} text-gray-700 hover:text-green-600`;
+    ? `${baseClasses} bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90`
+    : `${baseClasses} text-foreground hover:text-primary`;
 
   return (
     <a href={item.href} className={classes}>
@@ -32,8 +32,8 @@ const MobileNavigationLink = memo(function MobileNavigationLink({
   const baseClasses =
     'block px-3 py-2 rounded-md transition-colors duration-300';
   const classes = item.isButton
-    ? `${baseClasses} bg-green-600 text-white hover:bg-green-700`
-    : `${baseClasses} text-gray-700 hover:text-green-600 hover:bg-gray-100`;
+    ? `${baseClasses} bg-primary text-primary-foreground hover:bg-primary/90`
+    : `${baseClasses} text-foreground hover:text-primary hover:bg-muted`;
 
   return (
     <a href={item.href} className={classes}>
@@ -54,7 +54,7 @@ const HamburgerButton = memo(function HamburgerButton({
       onClick={onClick}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
       aria-expanded={isOpen}
-      className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-green-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+      className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
     >
       <svg
         className="h-6 w-6"
@@ -93,7 +93,7 @@ const MobileMenu = memo(function MobileMenu({
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden bg-white border-t border-gray-200">
+    <div className="md:hidden bg-background border-t border-border">
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         {items.map(item => (
           <MobileNavigationLink key={item.href} item={item} />
@@ -130,7 +130,7 @@ export default function Header({ className = '' }: HeaderProps) {
   return (
     <header className={`relative ${className}`}>
       <nav
-        className="bg-white fixed w-full top-0 z-50 shadow-sm"
+        className="bg-background fixed w-full top-0 z-50 shadow-sm"
         role="navigation"
         aria-label="Main navigation"
       >

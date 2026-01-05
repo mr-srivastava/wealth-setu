@@ -170,7 +170,7 @@ export default function ContactForm2() {
         />
         <Button
           type="submit"
-          className="w-full bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors duration-300 flex items-center justify-center"
+          className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-md hover:bg-primary/90 transition-colors duration-300 flex items-center justify-center"
         >
           Schedule Consultation
           <IconArrowRight className="ml-2" />

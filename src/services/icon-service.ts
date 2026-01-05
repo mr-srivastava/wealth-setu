@@ -13,9 +13,24 @@ import {
   IconMailFilled,
 } from '@tabler/icons-react';
 
+// Type for valid icon names
+export type IconName =
+  | 'IconUserCheck'
+  | 'IconTarget'
+  | 'IconShieldCheck'
+  | 'IconUsers'
+  | 'IconEye'
+  | 'IconHeadset'
+  | 'IconChartPie4Filled'
+  | 'IconShieldHeart'
+  | 'IconEmergencyBed'
+  | 'IconMapPinFilled'
+  | 'IconPhoneFilled'
+  | 'IconMailFilled';
+
 // Icon mapping service
 export const iconMap: Record<
-  string,
+  IconName,
   React.ComponentType<Record<string, unknown>>
 > = {
   IconUserCheck,
@@ -35,5 +50,13 @@ export const iconMap: Record<
 export function getIconComponent(
   iconName: string
 ): React.ComponentType<Record<string, unknown>> | null {
-  return iconMap[iconName] || null;
+  // Add runtime validation
+  if (!iconName.startsWith('Icon')) {
+    return null;
+  }
+  return (
+    (iconMap[iconName as IconName] as React.ComponentType<
+      Record<string, unknown>
+    >) || null
+  );
 }

@@ -49,11 +49,11 @@ const TrustMetricCard = memo(function TrustMetricCard({
   metric: TrustMetric;
 }) {
   return (
-    <div className="text-center p-6 bg-green-50 rounded-lg">
-      <div className="text-3xl font-bold text-green-600 mb-2">
+    <div className="text-center p-6 bg-brand-50 rounded-lg">
+      <div className="text-3xl font-bold text-primary mb-2">
         {metric.metric}
       </div>
-      <div className="text-gray-600">{metric.label}</div>
+      <div className="text-muted-foreground">{metric.label}</div>
     </div>
   );
 });
@@ -64,9 +64,9 @@ const MissionVisionCard = memo(function MissionVisionCard({
   item: MissionVision;
 }) {
   return (
-    <div className="border-l-4 border-green-600 pl-4">
-      <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-      <p className="text-gray-600">{item.description}</p>
+    <div className="border-l-4 border-primary pl-4">
+      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+      <p className="text-muted-foreground">{item.description}</p>
     </div>
   );
 });
@@ -89,11 +89,13 @@ const AboutContent = memo(function AboutContent({
   return (
     <div className="space-y-8">
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
-        <div className="h-1 w-20 bg-green-600 rounded"></div>
+        <h2 className="text-3xl font-bold text-foreground">{title}</h2>
+        <div className="h-1 w-20 bg-primary rounded"></div>
       </div>
 
-      <p className="text-lg text-gray-600 leading-relaxed">{description}</p>
+      <p className="text-lg text-muted-foreground leading-relaxed">
+        {description}
+      </p>
 
       <div className="grid grid-cols-2 gap-6">
         {MISSION_VISION.map(item => (
@@ -103,7 +105,7 @@ const AboutContent = memo(function AboutContent({
 
       {features.length > 0 && (
         <div className="space-y-4">
-          <h3 className="font-semibold text-gray-900">
+          <h3 className="font-semibold text-foreground">
             Why Choose WealthSetu?
           </h3>
           <div className="grid grid-cols-2 gap-4">
@@ -111,8 +113,12 @@ const AboutContent = memo(function AboutContent({
               <div key={index} className="flex items-center space-x-3">
                 {feature.icon}
                 <div>
-                  <h4 className="font-medium text-gray-900">{feature.title}</h4>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
+                  <h4 className="font-medium text-foreground">
+                    {feature.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -126,8 +132,8 @@ const AboutContent = memo(function AboutContent({
 const AboutVisual = memo(function AboutVisual() {
   return (
     <div className="relative">
-      <div className="absolute -inset-4 bg-green-50 rounded-xl transform rotate-3"></div>
-      <div className="relative bg-white p-8 rounded-xl shadow-lg">
+      <div className="absolute -inset-4 bg-brand-50 rounded-xl transform rotate-3"></div>
+      <div className="relative bg-card p-8 rounded-xl shadow-lg">
         <div className="grid grid-cols-2 gap-6">
           {TRUST_METRICS.map(metric => (
             <TrustMetricCard key={metric.label} metric={metric} />
@@ -136,7 +142,7 @@ const AboutVisual = memo(function AboutVisual() {
         <div className="mt-8 text-center">
           <Link
             href="#contact"
-            className="inline-flex items-center justify-center px-6 py-3 border border-green-600 text-green-600 font-medium rounded-md hover:bg-green-600 hover:text-white transition-colors duration-300"
+            className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary font-medium rounded-md hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
           >
             Schedule a Consultation
             <IconArrowRight className="ml-2" />

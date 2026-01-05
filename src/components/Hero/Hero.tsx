@@ -37,8 +37,8 @@ const CallToActionButton = memo(function CallToActionButton({
     'inline-block text-center px-8 py-3 rounded-md transition-colors duration-300';
   const classes =
     button.variant === 'primary'
-      ? `${baseClasses} bg-green-600 text-white hover:bg-green-700`
-      : `${baseClasses} border border-green-600 text-green-600 hover:bg-green-50`;
+      ? `${baseClasses} bg-primary text-primary-foreground hover:bg-primary/90`
+      : `${baseClasses} border border-primary text-primary hover:bg-brand-50`;
 
   return (
     <Link href={button.href} className={classes}>
@@ -52,7 +52,7 @@ const TrustBadge = memo(function TrustBadge({ badge }: { badge: TrustBadge }) {
 
   return (
     <div className="flex items-center">
-      <IconComponent className="text-green-600 mr-2" />
+      <IconComponent className="text-primary mr-2" />
       {badge.label}
     </div>
   );
@@ -73,11 +73,11 @@ const HeroContent = memo(function HeroContent({
 }: HeroContentProps) {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
         {title}
       </h1>
 
-      <p className="text-lg text-gray-600">{subtitle}</p>
+      <p className="text-lg text-muted-foreground">{subtitle}</p>
 
       <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row">
         <CallToActionButton
@@ -92,7 +92,7 @@ const HeroContent = memo(function HeroContent({
         />
       </div>
 
-      <div className="flex items-center space-x-4 text-sm text-gray-600">
+      <div className="flex items-center space-x-4 text-sm text-muted-foreground">
         {trustBadges.map(badge => (
           <TrustBadge key={badge.label} badge={badge} />
         ))}
@@ -126,7 +126,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <div
-      className={`pt-16 bg-gradient-to-br from-green-50 to-green-100 ${className}`}
+      className={`pt-16 bg-gradient-to-br from-brand-50 to-brand-100 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid md:grid-cols-2 gap-12 items-center">

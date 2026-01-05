@@ -55,12 +55,12 @@ const ContactInfoItem = memo(function ContactInfoItem({
 
   return (
     <div className="flex items-start space-x-4">
-      <div className="text-green-600">
-        <IconComponent className="text-green-500" />
+      <div className="text-primary">
+        <IconComponent className="text-primary" />
       </div>
       <div>
-        <h4 className="font-medium text-gray-900">{info.title}</h4>
-        <p className="text-gray-600">{info.value}</p>
+        <h4 className="font-medium text-foreground">{info.title}</h4>
+        <p className="text-muted-foreground">{info.value}</p>
       </div>
     </div>
   );
@@ -73,8 +73,8 @@ const BusinessHourItem = memo(function BusinessHourItem({
 }) {
   return (
     <div className="flex justify-between">
-      <span className="text-gray-600">{hour.day}</span>
-      <span className="text-gray-900 font-medium">{hour.hours}</span>
+      <span className="text-muted-foreground">{hour.day}</span>
+      <span className="text-foreground font-medium">{hour.hours}</span>
     </div>
   );
 });
@@ -82,11 +82,11 @@ const BusinessHourItem = memo(function BusinessHourItem({
 const ContactHeader = memo(function ContactHeader() {
   return (
     <div className="text-center mb-16">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <h2 className="text-3xl font-bold text-foreground mb-4">
         Get Started Today
       </h2>
-      <div className="h-1 w-20 bg-green-600 rounded mx-auto"></div>
-      <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+      <div className="h-1 w-20 bg-primary rounded mx-auto"></div>
+      <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
         Take the first step towards securing your financial future. Schedule a
         free consultation with our experts.
       </p>
@@ -96,7 +96,7 @@ const ContactHeader = memo(function ContactHeader() {
 
 const ContactFormSection = memo(function ContactFormSection() {
   return (
-    <div className="bg-white rounded-xl p-8 shadow-lg">
+    <div className="bg-card rounded-xl p-8 shadow-lg">
       <ContactForm2 />
     </div>
   );
@@ -104,8 +104,8 @@ const ContactFormSection = memo(function ContactFormSection() {
 
 const ContactInfoSection = memo(function ContactInfoSection() {
   return (
-    <div className="bg-white rounded-xl p-8 shadow-lg">
-      <h3 className="text-xl font-bold text-gray-900 mb-6">
+    <div className="bg-card rounded-xl p-8 shadow-lg">
+      <h3 className="text-xl font-bold text-foreground mb-6">
         Contact Information
       </h3>
       <div className="space-y-4">
@@ -119,8 +119,8 @@ const ContactInfoSection = memo(function ContactInfoSection() {
 
 const BusinessHoursSection = memo(function BusinessHoursSection() {
   return (
-    <div className="bg-white rounded-xl p-8 shadow-lg">
-      <h3 className="text-xl font-bold text-gray-900 mb-6">Business Hours</h3>
+    <div className="bg-card rounded-xl p-8 shadow-lg">
+      <h3 className="text-xl font-bold text-foreground mb-6">Business Hours</h3>
       <div className="space-y-2">
         {BUSINESS_HOURS.map(hour => (
           <BusinessHourItem key={hour.day} hour={hour} />
