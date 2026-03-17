@@ -65,8 +65,11 @@ export default function ContactForm2() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col gap-8"
+      >
+        <div className="flex flex-col sm:flex-row gap-4">
           <FormField
             control={form.control}
             name="firstName"
@@ -168,12 +171,9 @@ export default function ContactForm2() {
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-md hover:bg-primary/90 transition-colors duration-300 flex items-center justify-center"
-        >
-          Schedule Consultation
-          <IconArrowRight className="ml-2" />
+        <Button type="submit" className="w-full" size="lg">
+          <span>Schedule Consultation</span>
+          <IconArrowRight data-icon="inline-end" />
         </Button>
       </form>
     </Form>

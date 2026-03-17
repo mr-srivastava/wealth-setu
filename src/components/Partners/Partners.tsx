@@ -66,9 +66,9 @@ export default function Partners({ className = '' }: PartnersProps) {
               <h3 className="text-xl font-bold text-foreground mb-4">
                 {partner.title}
               </h3>
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 {partner.partners.map(partner => (
-                  <div key={partner} className="flex items-center space-x-3">
+                  <div key={partner} className="flex items-center gap-3">
                     <IconCircleCheckFilled className="text-primary" />
                     <span className="text-foreground">{partner}</span>
                   </div>

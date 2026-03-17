@@ -94,7 +94,7 @@ const MobileMenu = memo(function MobileMenu({
 
   return (
     <div className="md:hidden bg-background border-t border-border">
-      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div className="flex flex-col gap-1 px-2 pt-2 pb-3 sm:px-3">
         {items.map(item => (
           <MobileNavigationLink key={item.href} item={item} />
         ))}
@@ -143,7 +143,7 @@ export default function Header({ className = '' }: HeaderProps) {
             </div>
 
             <div
-              className="hidden md:flex md:items-center md:space-x-8"
+              className="hidden md:flex md:items-center md:gap-8"
               role="menubar"
             >
               {navigationItems.map(item => (

@@ -7,9 +7,29 @@ export interface NavigationItem {
   targetSection?: string;
 }
 
+export type SectionType =
+  | 'Hero'
+  | 'About'
+  | 'Services'
+  | 'WhyUs'
+  | 'Process'
+  | 'Testimonials'
+  | 'Contact'
+  | 'Partners';
+
+export type SectionId =
+  | 'hero'
+  | 'about'
+  | 'services'
+  | 'why-us'
+  | 'process'
+  | 'testimonials'
+  | 'contact'
+  | 'partners';
+
 export interface Section {
-  id: string;
-  type: string; // Component type (Hero, About, Services, etc.)
+  id: SectionId;
+  type: SectionType; // Component type (Hero, About, Services, etc.)
   className?: string;
   data: Record<string, unknown>; // Component-specific data
 }
@@ -17,7 +37,7 @@ export interface Section {
 export interface HomepageData {
   navigation: NavigationItem[];
   sections: Section[];
-  sectionOrder: string[]; // Order of sections to render
+  sectionOrder: SectionId[]; // Order of sections to render
   metadata: {
     title: string;
     description: string;

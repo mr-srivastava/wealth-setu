@@ -72,14 +72,14 @@ const HeroContent = memo(function HeroContent({
   ctaHref = '#contact',
 }: HeroContentProps) {
   return (
-    <div className="space-y-8">
+    <div className="flex flex-col gap-8">
       <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
         {title}
       </h1>
 
       <p className="text-lg text-muted-foreground">{subtitle}</p>
 
-      <div className="space-y-4 sm:space-y-0 sm:space-x-4 flex flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row gap-4">
         <CallToActionButton
           button={{ href: ctaHref, label: ctaText, variant: 'primary' }}
         />
@@ -92,7 +92,7 @@ const HeroContent = memo(function HeroContent({
         />
       </div>
 
-      <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+      <div className="flex items-center gap-4 text-sm text-muted-foreground">
         {trustBadges.map(badge => (
           <TrustBadge key={badge.label} badge={badge} />
         ))}

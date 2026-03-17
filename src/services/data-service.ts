@@ -19,7 +19,7 @@ export class HomepageDataService {
   }
 
   static async getSectionById(
-    id: string
+    id: HomepageData['sections'][number]['id']
   ): Promise<HomepageData['sections'][0] | null> {
     const sections = await this.getSections();
     return sections.find(section => section.id === id) || null;

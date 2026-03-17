@@ -2,7 +2,7 @@
 
 import React, { memo, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Section } from '@/data/homepage-data';
+import { Section, type SectionId } from '@/data/homepage-data';
 import { getComponent } from '@/services/component-service';
 import { getIconComponent } from '@/services/icon-service';
 import { HomepageDataService } from '@/services/data-service';
@@ -124,7 +124,7 @@ const DynamicHomepageContent = memo(function DynamicHomepageContent({
   sectionOrder,
 }: {
   sections: Section[];
-  sectionOrder: string[];
+  sectionOrder: SectionId[];
 }) {
   // Memoize section map for performance
   const sectionMap = useMemo(
@@ -144,7 +144,8 @@ const DynamicHomepageContent = memo(function DynamicHomepageContent({
         return { sectionId, section };
       })
       .filter(
-        (item): item is { sectionId: string; section: Section } => item !== null
+        (item): item is { sectionId: SectionId; section: Section } =>
+          item !== null
       );
   }, [sectionOrder, sectionMap]);
 

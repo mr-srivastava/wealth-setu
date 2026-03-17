@@ -102,7 +102,7 @@ const ContactInfoItem = memo(function ContactInfoItem({
   const IconComponent = info.icon;
 
   return (
-    <li className="flex items-center space-x-3">
+    <li className="flex items-center gap-3">
       <IconComponent className="text-primary" />
       <span className="text-muted-foreground">{info.value}</span>
     </li>
@@ -111,13 +111,13 @@ const ContactInfoItem = memo(function ContactInfoItem({
 
 const CompanyInfo = memo(function CompanyInfo() {
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <h3 className="text-2xl font-bold text-primary">WealthSetu</h3>
       <p className="text-muted-foreground">
         Your trusted partner in creating comprehensive financial solutions for a
         secure future.
       </p>
-      <div className="flex space-x-4">
+      <div className="flex gap-4">
         {SOCIALS.map(social => (
           <SocialLink key={social.name} social={social} />
         ))}
@@ -128,9 +128,9 @@ const CompanyInfo = memo(function CompanyInfo() {
 
 const QuickLinksSection = memo(function QuickLinksSection() {
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <h4 className="text-lg font-semibold text-primary">Quick Links</h4>
-      <ul className="space-y-2">
+      <ul className="flex flex-col gap-2">
         {QUICK_LINKS.map(link => (
           <FooterLink key={link.name} link={link} />
         ))}
@@ -141,9 +141,9 @@ const QuickLinksSection = memo(function QuickLinksSection() {
 
 const ServicesSection = memo(function ServicesSection() {
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <h4 className="text-lg font-semibold text-primary">Our Services</h4>
-      <ul className="space-y-2">
+      <ul className="flex flex-col gap-2">
         {SERVICES.map(service => (
           <FooterLink key={service.name} link={service} />
         ))}
@@ -154,9 +154,9 @@ const ServicesSection = memo(function ServicesSection() {
 
 const ContactInfoSection = memo(function ContactInfoSection() {
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <h4 className="text-lg font-semibold text-primary">Contact Info</h4>
-      <ul className="space-y-2">
+      <ul className="flex flex-col gap-2">
         {CONTACT_INFO.map((info, index) => (
           <ContactInfoItem key={index} info={info} />
         ))}
@@ -169,7 +169,7 @@ const FooterBottom = memo(function FooterBottom() {
   return (
     <div className="border-t border-border pt-8 mt-8">
       <div className="grid md:grid-cols-2 gap-4 items-center">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-4">
           <div className="text-sm text-muted-foreground">
             <span className="font-medium">AMFI Registration:</span> ARN-123456
           </div>
@@ -177,7 +177,7 @@ const FooterBottom = memo(function FooterBottom() {
             <span className="font-medium">SEBI Registration:</span> INA000012345
           </div>
         </div>
-        <div className="flex justify-start md:justify-end space-x-4">
+        <div className="flex justify-start md:justify-end gap-4">
           {LEGAL_LINKS.map(link => (
             <FooterLink key={link.name} link={link} />
           ))}

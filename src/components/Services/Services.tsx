@@ -68,7 +68,7 @@ const ServiceFeature = memo(function ServiceFeature({
   feature: string;
 }) {
   return (
-    <li className="flex items-center space-x-3">
+    <li className="flex items-center gap-3">
       <IconCheck className="text-primary mt-1" />
       <span className="text-muted-foreground">{feature}</span>
     </li>
@@ -90,7 +90,7 @@ const ServiceCard = memo(function ServiceCard({
       </h3>
       <p className="text-muted-foreground mb-6">{service.description}</p>
 
-      <ul className="space-y-3 mb-8">
+      <ul className="flex flex-col gap-3 mb-8">
         {service.features.map(feature => (
           <ServiceFeature key={feature} feature={feature} />
         ))}

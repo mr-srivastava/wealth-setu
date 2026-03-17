@@ -54,7 +54,7 @@ const ContactInfoItem = memo(function ContactInfoItem({
   const IconComponent = info.icon;
 
   return (
-    <div className="flex items-start space-x-4">
+    <div className="flex items-start gap-4">
       <div className="text-primary">
         <IconComponent className="text-primary" />
       </div>
@@ -132,7 +132,7 @@ const BusinessHoursSection = memo(function BusinessHoursSection() {
 
 const ContactSidebar = memo(function ContactSidebar() {
   return (
-    <div className="space-y-8">
+    <div className="flex flex-col gap-8">
       <ContactInfoSection />
       <BusinessHoursSection />
     </div>

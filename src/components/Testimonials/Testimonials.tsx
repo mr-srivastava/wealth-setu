@@ -104,7 +104,7 @@ const TestimonialsGrid = memo(function TestimonialsGrid() {
 
 const RatingDisplay = memo(function RatingDisplay() {
   return (
-    <div className="flex items-center justify-center space-x-2 mb-8">
+    <div className="flex items-center justify-center gap-2 mb-8">
       {Array.from({ length: 5 }).map((_, index) => (
         <IconStarFilled key={index} className="text-yellow-400" />
       ))}

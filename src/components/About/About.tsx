@@ -87,8 +87,8 @@ const AboutContent = memo(function AboutContent({
   features = [],
 }: AboutContentProps) {
   return (
-    <div className="space-y-8">
-      <div className="space-y-4">
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4">
         <h2 className="text-3xl font-bold text-foreground">{title}</h2>
         <div className="h-1 w-20 bg-primary rounded"></div>
       </div>
@@ -104,13 +104,13 @@ const AboutContent = memo(function AboutContent({
       </div>
 
       {features.length > 0 && (
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
           <h3 className="font-semibold text-foreground">
             Why Choose WealthSetu?
           </h3>
           <div className="grid grid-cols-2 gap-4">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center space-x-3">
+              <div key={index} className="flex items-center gap-3">
                 {feature.icon}
                 <div>
                   <h4 className="font-medium text-foreground">
