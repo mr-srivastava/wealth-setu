@@ -50,12 +50,12 @@ const VALUEPROPS: ValueProp[] = [
 
 const METRICS: Metric[] = [
   {
-    metric: '5000+',
+    metric: '500+',
     label: 'Happy Clients',
   },
   {
-    metric: '₹100Cr+',
-    label: 'Assets Managed',
+    metric: '₹30Cr+',
+    label: 'Mutual Fund AUM',
   },
   {
     metric: '10+',
@@ -64,6 +64,10 @@ const METRICS: Metric[] = [
   {
     metric: '99%',
     label: 'Client Satisfaction',
+  },
+  {
+    metric: '₹21L+',
+    label: 'Monthly SIP Book',
   },
 ];
 

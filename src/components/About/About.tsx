@@ -25,8 +25,9 @@ interface AboutProps {
 
 const TRUST_METRICS: TrustMetric[] = [
   { metric: '10+', label: 'Years of Experience' },
-  { metric: '5000+', label: 'Happy Clients' },
-  { metric: '₹100Cr+', label: 'Assets Managed' },
+  { metric: '500+', label: 'Happy Clients' },
+  { metric: '₹30Cr+', label: 'Mutual Fund AUM' },
+  { metric: '₹21L+', label: 'Monthly SIP Book' },
   { metric: '99%', label: 'Client Satisfaction' },
 ];
 
